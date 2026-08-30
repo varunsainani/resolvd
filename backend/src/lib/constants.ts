@@ -11,3 +11,13 @@ export function isTicketStatus(v: unknown): v is TicketStatusValue {
 export function isTicketPriority(v: unknown): v is TicketPriorityValue {
   return typeof v === "string" && (TICKET_PRIORITIES as readonly string[]).includes(v);
 }
+
+export const CHANNELS = ["EMAIL", "CHAT", "WEB", "PHONE"] as const;
+export type ChannelValue = (typeof CHANNELS)[number];
+
+export const SENTIMENTS = ["POSITIVE", "NEUTRAL", "NEGATIVE"] as const;
+export type SentimentValue = (typeof SENTIMENTS)[number];
+
+export function isChannel(v: unknown): v is ChannelValue {
+  return typeof v === "string" && (CHANNELS as readonly string[]).includes(v);
+}
