@@ -4,6 +4,11 @@ const SUPPORTED = ["en", "es", "pt"];
 const DEFAULT = "en";
 
 const MESSAGES: Record<string, Record<string, string>> = {
+  email_taken: {
+    en: "That email is already registered.",
+    es: "Ese correo ya está registrado.",
+    pt: "Esse e-mail já está cadastrado.",
+  },
   invalid_credentials: {
     en: "Invalid email or password.",
     es: "Correo o contraseña no válidos.",
