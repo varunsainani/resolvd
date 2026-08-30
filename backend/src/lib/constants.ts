@@ -62,3 +62,11 @@ export const TAG_COLORS: Record<string, string> = {
 export function colorForTag(name: string): string {
   return TAG_COLORS[name.toLowerCase()] || "#64748b";
 }
+
+// SLA targets in minutes per priority: [first response, resolution].
+export const SLA_MINUTES: Record<TicketPriorityValue, { firstResponse: number; resolution: number }> = {
+  URGENT: { firstResponse: 30, resolution: 240 },
+  HIGH: { firstResponse: 60, resolution: 480 },
+  NORMAL: { firstResponse: 240, resolution: 1440 },
+  LOW: { firstResponse: 480, resolution: 2880 },
+};
