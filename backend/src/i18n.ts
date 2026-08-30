@@ -4,6 +4,21 @@ const SUPPORTED = ["en", "es", "pt"];
 const DEFAULT = "en";
 
 const MESSAGES: Record<string, Record<string, string>> = {
+  customer_not_found: {
+    en: "This customer could not be found.",
+    es: "No se encontró este cliente.",
+    pt: "Este cliente não foi encontrado.",
+  },
+  article_not_found: {
+    en: "This knowledge base article could not be found.",
+    es: "No se encontró este artículo de la base de conocimiento.",
+    pt: "Este artigo da base de conhecimento não foi encontrado.",
+  },
+  canned_not_found: {
+    en: "This canned response could not be found.",
+    es: "No se encontró esta respuesta predefinida.",
+    pt: "Esta resposta predefinida não foi encontrada.",
+  },
   invalid_status: {
     en: "That is not a valid ticket status.",
     es: "Ese no es un estado de ticket válido.",
