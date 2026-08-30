@@ -136,3 +136,11 @@ model TicketTag {
   @@id([ticketId, tagId])
   @@index([tagId])
 }
+
+model CannedResponse {
+  id        String   @id @default(cuid())
+  title     String
+  body      String   @db.Text
+  category  String   @default("General")
+  createdAt DateTime @default(now())
+}
