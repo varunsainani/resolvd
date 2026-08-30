@@ -96,4 +96,12 @@ model Ticket {
   resolvedAt      DateTime?
   slaFirstDueAt   DateTime?
   slaResolveDueAt DateTime?
+
+  messages Message[]
+  tags     TicketTag[]
+
+  @@index([status])
+  @@index([priority])
+  @@index([assigneeId])
+  @@index([createdAt])
 }
