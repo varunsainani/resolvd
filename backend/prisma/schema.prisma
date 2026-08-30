@@ -89,4 +89,11 @@ model Ticket {
   customer   Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
   assigneeId String?
   assignee   User?    @relation("assignee", fields: [assigneeId], references: [id], onDelete: SetNull)
+
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  firstResponseAt DateTime?
+  resolvedAt      DateTime?
+  slaFirstDueAt   DateTime?
+  slaResolveDueAt DateTime?
 }
