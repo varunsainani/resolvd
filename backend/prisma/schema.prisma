@@ -39,3 +39,9 @@ enum Sentiment {
   NEUTRAL
   NEGATIVE
 }
+
+enum AuthorType {
+  CUSTOMER
+  AGENT
+  SYSTEM
+}
