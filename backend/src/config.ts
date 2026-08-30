@@ -13,5 +13,9 @@ export const config = {
   groqModel: process.env.GROQ_MODEL || "llama-3.3-70b-versatile",
   geminiApiKey: process.env.GEMINI_API_KEY || "",
   geminiModel: process.env.GEMINI_MODEL || "gemini-flash-latest",
+  demoEmail: process.env.DEMO_EMAIL || "demo@resolvd.app",
+  demoPassword: process.env.DEMO_PASSWORD || "demo1234",
+  adminEmail: process.env.ADMIN_EMAIL || "admin@resolvd.app",
+  dailySuggestLimit: Number(process.env.DAILY_SUGGEST_LIMIT || 80),
   port: Number(process.env.PORT || 8000),
 };
