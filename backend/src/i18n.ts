@@ -4,6 +4,21 @@ const SUPPORTED = ["en", "es", "pt"];
 const DEFAULT = "en";
 
 const MESSAGES: Record<string, Record<string, string>> = {
+  invalid_status: {
+    en: "That is not a valid ticket status.",
+    es: "Ese no es un estado de ticket válido.",
+    pt: "Esse não é um status de ticket válido.",
+  },
+  invalid_priority: {
+    en: "That is not a valid priority level.",
+    es: "Ese no es un nivel de prioridad válido.",
+    pt: "Esse não é um nível de prioridade válido.",
+  },
+  assignee_not_found: {
+    en: "The selected agent could not be found.",
+    es: "No se encontró el agente seleccionado.",
+    pt: "O agente selecionado não foi encontrado.",
+  },
   ticket_not_found: {
     en: "This ticket could not be found.",
     es: "No se encontró este ticket.",
