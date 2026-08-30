@@ -12,3 +12,9 @@ export function serializeUser(u: User) {
     avatarColor: u.avatarColor,
   };
 }
+
+// Compact reference to an agent, used for assignee and message author display.
+export function serializeAgentRef(u: Pick<User, "id" | "name" | "avatarColor"> | null | undefined) {
+  if (!u) return null;
+  return { id: u.id, name: u.name, avatarColor: u.avatarColor };
+}
