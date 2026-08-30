@@ -43,3 +43,8 @@ export function serializeMessage(m: MessageWithAuthor) {
     createdAt: m.createdAt.toISOString(),
   };
 }
+
+// Ticket tags arrive as TicketTag join rows with an included `tag`.
+export function serializeTag(row: { tag: { name: string; color: string } }) {
+  return { name: row.tag.name, color: row.tag.color };
+}
