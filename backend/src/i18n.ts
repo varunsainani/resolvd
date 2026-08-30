@@ -4,6 +4,21 @@ const SUPPORTED = ["en", "es", "pt"];
 const DEFAULT = "en";
 
 const MESSAGES: Record<string, Record<string, string>> = {
+  email_required: {
+    en: "A valid email address is required.",
+    es: "Se requiere un correo electrónico válido.",
+    pt: "É necessário um e-mail válido.",
+  },
+  password_too_short: {
+    en: "Password must be at least 8 characters.",
+    es: "La contraseña debe tener al menos 8 caracteres.",
+    pt: "A senha deve ter ao menos 8 caracteres.",
+  },
+  name_required: {
+    en: "Please enter your name.",
+    es: "Ingresa tu nombre.",
+    pt: "Digite seu nome.",
+  },
   not_found: {
     en: "Not found.",
     es: "No encontrado.",
