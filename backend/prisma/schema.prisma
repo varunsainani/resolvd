@@ -33,3 +33,9 @@ enum Channel {
   WEB
   PHONE
 }
+
+enum Sentiment {
+  POSITIVE
+  NEUTRAL
+  NEGATIVE
+}
