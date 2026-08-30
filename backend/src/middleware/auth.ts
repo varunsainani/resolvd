@@ -46,3 +46,11 @@ export async function requireUser(req: Request, res: Response, next: NextFunctio
   };
   next();
 }
+
+export function requireAdmin(req: Request, res: Response, next: NextFunction): void {
+  if (req.role !== "admin") {
+    res.status(403).json({ detail: t("forbidden", req.locale) });
+    return;
+  }
+  next();
+}
