@@ -4,6 +4,21 @@ const SUPPORTED = ["en", "es", "pt"];
 const DEFAULT = "en";
 
 const MESSAGES: Record<string, Record<string, string>> = {
+  ticket_not_found: {
+    en: "This ticket could not be found.",
+    es: "No se encontró este ticket.",
+    pt: "Este ticket não foi encontrado.",
+  },
+  subject_required: {
+    en: "Please add a subject for the ticket.",
+    es: "Agrega un asunto para el ticket.",
+    pt: "Adicione um assunto para o ticket.",
+  },
+  message_required: {
+    en: "Please write a message before sending.",
+    es: "Escribe un mensaje antes de enviar.",
+    pt: "Escreva uma mensagem antes de enviar.",
+  },
   email_required: {
     en: "A valid email address is required.",
     es: "Se requiere un correo electrónico válido.",
