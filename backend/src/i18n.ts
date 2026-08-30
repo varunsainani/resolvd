@@ -4,6 +4,16 @@ const SUPPORTED = ["en", "es", "pt"];
 const DEFAULT = "en";
 
 const MESSAGES: Record<string, Record<string, string>> = {
+  not_authenticated: {
+    en: "Please sign in to continue.",
+    es: "Inicia sesión para continuar.",
+    pt: "Faça login para continuar.",
+  },
+  forbidden: {
+    en: "You do not have access to this.",
+    es: "No tienes acceso a esto.",
+    pt: "Você não tem acesso a isto.",
+  },
   email_taken: {
     en: "That email is already registered.",
     es: "Ese correo ya está registrado.",
