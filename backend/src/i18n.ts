@@ -4,6 +4,21 @@ const SUPPORTED = ["en", "es", "pt"];
 const DEFAULT = "en";
 
 const MESSAGES: Record<string, Record<string, string>> = {
+  not_found: {
+    en: "Not found.",
+    es: "No encontrado.",
+    pt: "Não encontrado.",
+  },
+  invalid_input: {
+    en: "Please check your input and try again.",
+    es: "Revisa los datos e intenta de nuevo.",
+    pt: "Verifique os dados e tente novamente.",
+  },
+  server_error: {
+    en: "Something went wrong on our end. Please try again.",
+    es: "Algo salió mal de nuestro lado. Intenta de nuevo.",
+    pt: "Algo deu errado do nosso lado. Tente novamente.",
+  },
   not_authenticated: {
     en: "Please sign in to continue.",
     es: "Inicia sesión para continuar.",
