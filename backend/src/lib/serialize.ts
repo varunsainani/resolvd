@@ -28,3 +28,18 @@ export function serializeCustomer(c: Customer) {
     createdAt: c.createdAt.toISOString(),
   };
 }
+
+type MessageWithAuthor = Message & {
+  authorUser?: Pick<User, "id" | "name" | "avatarColor"> | null;
+};
+
+export function serializeMessage(m: MessageWithAuthor) {
+  return {
+    id: m.id,
+    authorType: m.authorType,
+    author: serializeAgentRef(m.authorUser),
+    body: m.body,
+    isInternal: m.isInternal,
+    createdAt: m.createdAt.toISOString(),
+  };
+}
