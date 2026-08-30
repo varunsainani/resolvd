@@ -19,3 +19,10 @@ enum TicketStatus {
   RESOLVED
   CLOSED
 }
+
+enum TicketPriority {
+  LOW
+  NORMAL
+  HIGH
+  URGENT
+}
