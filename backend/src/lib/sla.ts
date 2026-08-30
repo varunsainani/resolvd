@@ -22,3 +22,9 @@ export function slaState(dueAt: Date | null | undefined, now: Date, done: boolea
   if (diffMs < 60 * 60_000) return "due-soon";
   return "ok";
 }
+
+// Whole minutes until (positive) or since (negative) a deadline.
+export function minutesRemaining(dueAt: Date | null | undefined, now: Date): number | null {
+  if (!dueAt) return null;
+  return Math.round((dueAt.getTime() - now.getTime()) / 60_000);
+}
