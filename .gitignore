@@ -1,0 +1,30 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# builds
+dist/
+.next/
+out/
+build/
+
+# env
+.env
+.env*.local
+!.env.example
+
+# logs
+*.log
+npm-debug.log*
+
+# os / editor
+.DS_Store
+.vscode/
+.idea/
+
+# vercel
+.vercel
+
+# prisma
+prisma/*.db
