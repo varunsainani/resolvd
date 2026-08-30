@@ -60,3 +60,15 @@ model User {
   assignedTickets Ticket[]  @relation("assignee")
   messages        Message[]
 }
+
+model Customer {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  company   String?
+  createdAt DateTime @default(now())
+
+  tickets Ticket[]
+
+  @@index([email])
+}
