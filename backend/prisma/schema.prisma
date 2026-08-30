@@ -26,3 +26,10 @@ enum TicketPriority {
   HIGH
   URGENT
 }
+
+enum Channel {
+  EMAIL
+  CHAT
+  WEB
+  PHONE
+}
