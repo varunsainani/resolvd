@@ -4,6 +4,16 @@ const SUPPORTED = ["en", "es", "pt"];
 const DEFAULT = "en";
 
 const MESSAGES: Record<string, Record<string, string>> = {
+  llm_unavailable: {
+    en: "The assistant is temporarily unavailable. Please try again.",
+    es: "El asistente no está disponible temporalmente. Intenta de nuevo.",
+    pt: "O assistente está temporariamente indisponível. Tente novamente.",
+  },
+  daily_suggest_limit: {
+    en: "You have reached the daily AI suggestion limit for this demo. Try again tomorrow.",
+    es: "Alcanzaste el límite diario de sugerencias de IA de esta demo. Intenta mañana.",
+    pt: "Você atingiu o limite diário de sugestões de IA desta demo. Tente amanhã.",
+  },
   customer_not_found: {
     en: "This customer could not be found.",
     es: "No se encontró este cliente.",
