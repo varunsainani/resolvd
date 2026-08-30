@@ -18,3 +18,13 @@ export function serializeAgentRef(u: Pick<User, "id" | "name" | "avatarColor"> |
   if (!u) return null;
   return { id: u.id, name: u.name, avatarColor: u.avatarColor };
 }
+
+export function serializeCustomer(c: Customer) {
+  return {
+    id: c.id,
+    name: c.name,
+    email: c.email,
+    company: c.company,
+    createdAt: c.createdAt.toISOString(),
+  };
+}
