@@ -21,3 +21,24 @@ export type SentimentValue = (typeof SENTIMENTS)[number];
 export function isChannel(v: unknown): v is ChannelValue {
   return typeof v === "string" && (CHANNELS as readonly string[]).includes(v);
 }
+
+// Support categories the AI can triage a ticket into.
+export const CATEGORIES = [
+  "General",
+  "Billing",
+  "Technical",
+  "Account",
+  "Bug",
+  "Feature Request",
+  "Onboarding",
+  "Integration",
+] as const;
+export type CategoryValue = (typeof CATEGORIES)[number];
+
+export function normalizeCategory(v: unknown): CategoryValue {
+  if (typeof v === "string") {
+    const match = CATEGORIES.find((c) => c.toLowerCase() === v.toLowerCase().trim());
+    if (match) return match;
+  }
+  return "General";
+}
