@@ -42,3 +42,23 @@ export function normalizeCategory(v: unknown): CategoryValue {
   }
   return "General";
 }
+
+// Seed tag vocabulary with stable colors, also used to color AI-suggested tags.
+export const TAG_COLORS: Record<string, string> = {
+  urgent: "#dc2626",
+  vip: "#9333ea",
+  refund: "#ea580c",
+  "how-to": "#0ea5a4",
+  outage: "#e11d48",
+  login: "#2563eb",
+  payment: "#16a34a",
+  "feature-request": "#7c3aed",
+  bug: "#db2777",
+  onboarding: "#0891b2",
+  api: "#4f46e5",
+  mobile: "#059669",
+};
+
+export function colorForTag(name: string): string {
+  return TAG_COLORS[name.toLowerCase()] || "#64748b";
+}
