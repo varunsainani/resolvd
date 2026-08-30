@@ -72,3 +72,16 @@ model Customer {
 
   @@index([email])
 }
+
+model Ticket {
+  id        String         @id @default(cuid())
+  reference Int            @unique @default(autoincrement())
+  subject   String
+  status    TicketStatus   @default(OPEN)
+  priority  TicketPriority @default(NORMAL)
+  channel   Channel        @default(WEB)
+  category  String         @default("General")
+  sentiment Sentiment      @default(NEUTRAL)
+  summary   String?        @db.Text
+  aiTriaged Boolean        @default(false)
+}
