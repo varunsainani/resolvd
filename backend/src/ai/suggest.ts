@@ -1,7 +1,7 @@
 import type { KbArticle } from "@prisma/client";
 import { z } from "zod";
 
-import { getProvider } from "../llm";
+import { getProvider, LLMProvider } from "../llm";
 import { clamp, normalizeWhitespace } from "../lib/text";
 import { parseJsonObject } from "./json";
 
@@ -108,12 +108,15 @@ function fallbackReply(input: SuggestInput): string {
 
 // Draft a suggested agent reply. Always resolves; falls back to a localized
 // template so the "suggest reply" button never dead-ends.
-export async function suggestReply(input: SuggestInput): Promise<SuggestResult> {
+export async function suggestReply(
+  input: SuggestInput,
+  provider: LLMProvider = getProvider(),
+): Promise<SuggestResult> {
   const locale = input.locale || "en";
   const usedArticles = input.articles.map((a) => ({ id: a.id, title: a.title }));
   let reply: string | null = null;
   try {
-    const raw = await getProvider().complete(buildSystem(locale), buildUser(input));
+    const raw = await provider.complete(buildSystem(locale), buildUser(input));
     const val = suggestSchema.safeParse(parseJsonObject(raw));
     if (val.success && val.data.reply.trim()) {
       reply = normalizeWhitespace(val.data.reply);
