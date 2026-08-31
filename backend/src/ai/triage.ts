@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { getProvider } from "../llm";
+import { getProvider, LLMProvider } from "../llm";
 import {
   CATEGORIES,
   CategoryValue,
@@ -102,11 +102,14 @@ function normalizeTags(tags: string[]): string[] {
 
 // Classify a ticket. Always resolves; on any model failure or gap it fills the
 // field from the deterministic heuristics so every ticket gets full triage.
-export async function triageTicket(input: TriageInput): Promise<TriageResult> {
+export async function triageTicket(
+  input: TriageInput,
+  provider: LLMProvider = getProvider(),
+): Promise<TriageResult> {
   const combined = `${input.subject}\n${input.message}`;
   let parsed: z.infer<typeof triageSchema> | null = null;
   try {
-    const raw = await getProvider().complete(buildSystem(), buildUser(input));
+    const raw = await provider.complete(buildSystem(), buildUser(input));
     const obj = parseJsonObject(raw);
     const val = triageSchema.safeParse(obj);
     if (val.success) parsed = val.data;
