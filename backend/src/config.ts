@@ -10,7 +10,7 @@ export const config = {
   corsOrigin: process.env.CORS_ORIGIN || "*",
   llmProvider: (process.env.LLM_PROVIDER || "groq").toLowerCase(),
   groqApiKey: process.env.GROQ_API_KEY || "",
-  groqModel: process.env.GROQ_MODEL || "llama-3.3-70b-versatile",
+  groqModel: process.env.GROQ_MODEL || "openai/gpt-oss-120b",
   geminiApiKey: process.env.GEMINI_API_KEY || "",
   geminiModel: process.env.GEMINI_MODEL || "gemini-flash-latest",
   demoEmail: process.env.DEMO_EMAIL || "demo@resolvd.app",
