@@ -4,7 +4,7 @@ import { hashPassword, signToken, verifyPassword } from "../auth";
 import { config } from "../config";
 import { ApiError } from "../lib/http";
 import { serializeUser } from "../lib/serialize";
-import { requireEmail, requirePassword, requireString } from "../lib/validate";
+import { oneOf, requireEmail, requirePassword, requireString } from "../lib/validate";
 import { requireUser } from "../middleware/auth";
 import { prisma } from "../prisma";
 
@@ -63,5 +63,21 @@ authRouter.get("/me", requireUser, async (req, res) => {
   if (!user) {
     throw new ApiError(401, "not_authenticated");
   }
+  res.json({ user: serializeUser(user) });
+});
+
+const LOCALES = ["en", "es", "pt"] as const;
+const THEMES = ["light", "dark"] as const;
+
+// PATCH /api/auth/me — update the caller's display name, locale, or theme.
+authRouter.patch("/me", requireUser, async (req, res) => {
+  const body = req.body ?? {};
+  const data: { name?: string; locale?: string; theme?: string } = {};
+
+  if (body.name !== undefined) data.name = requireString(body.name, "name_required");
+  if (body.locale !== undefined) data.locale = oneOf(body.locale, LOCALES, "invalid_input");
+  if (body.theme !== undefined) data.theme = oneOf(body.theme, THEMES, "invalid_input");
+
+  const user = await prisma.user.update({ where: { id: req.userId }, data });
   res.json({ user: serializeUser(user) });
 });
