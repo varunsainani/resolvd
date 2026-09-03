@@ -18,7 +18,7 @@ messagesRouter.use(requireUser);
 // The first public reply stamps firstResponseAt (meeting the response SLA) and
 // an optional status moves the ticket in the same action.
 messagesRouter.post("/messages", async (req, res) => {
-  const ticketId = req.params.ticketId;
+  const { ticketId } = req.params as { ticketId: string };
   const ticket = await prisma.ticket.findUnique({ where: { id: ticketId } });
   if (!ticket) throw notFound("ticket_not_found");
 
