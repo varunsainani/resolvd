@@ -56,3 +56,12 @@ authRouter.post("/demo", async (_req, res) => {
   }
   res.json(authPayload(user));
 });
+
+// GET /api/auth/me — the currently authenticated user's profile.
+authRouter.get("/me", requireUser, async (req, res) => {
+  const user = await prisma.user.findUnique({ where: { id: req.userId } });
+  if (!user) {
+    throw new ApiError(401, "not_authenticated");
+  }
+  res.json({ user: serializeUser(user) });
+});
