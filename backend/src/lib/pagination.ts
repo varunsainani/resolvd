@@ -22,3 +22,20 @@ export function parsePageParams(query: Record<string, unknown>): PageParams {
   const pageSize = Math.min(MAX_PAGE_SIZE, Math.max(1, toInt(query.pageSize, DEFAULT_PAGE_SIZE)));
   return { page, pageSize, skip: (page - 1) * pageSize, take: pageSize };
 }
+
+export interface PageMeta {
+  page: number;
+  pageSize: number;
+  total: number;
+  totalPages: number;
+}
+
+// Build the pagination envelope returned alongside a page of rows.
+export function buildPageMeta(total: number, params: PageParams): PageMeta {
+  return {
+    page: params.page,
+    pageSize: params.pageSize,
+    total,
+    totalPages: Math.max(1, Math.ceil(total / params.pageSize)),
+  };
+}
