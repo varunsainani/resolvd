@@ -30,3 +30,12 @@ export function requireEmail(value: unknown, key = "email_required"): string {
   }
   return raw;
 }
+
+// Passwords must be at least 8 characters. Returns the password unchanged
+// (never trimmed: leading/trailing spaces can be intentional).
+export function requirePassword(value: unknown, key = "password_too_short"): string {
+  if (typeof value !== "string" || value.length < 8) {
+    throw badRequest(key);
+  }
+  return value;
+}
