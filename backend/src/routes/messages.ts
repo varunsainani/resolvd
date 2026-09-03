@@ -8,7 +8,7 @@ import { ApiError, notFound } from "../lib/http";
 import { ticketDetailInclude } from "../lib/include";
 import { hitDailyLimit } from "../lib/rate-limit";
 import { serializeTicketDetail } from "../lib/serialize";
-import { oneOf, requireString } from "../lib/validate";
+import { coerceBoolean, oneOf, requireString } from "../lib/validate";
 import { requireUser } from "../middleware/auth";
 import { prisma } from "../prisma";
 
@@ -27,7 +27,7 @@ messagesRouter.post("/messages", async (req, res) => {
 
   const body = req.body ?? {};
   const text = requireString(body.body, "message_required");
-  const isInternal = Boolean(body.isInternal);
+  const isInternal = coerceBoolean(body.isInternal);
 
   await prisma.message.create({
     data: {
