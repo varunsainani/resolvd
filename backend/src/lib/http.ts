@@ -27,3 +27,8 @@ export function unauthorized(key = "not_authenticated"): ApiError {
 export function forbidden(key = "forbidden"): ApiError {
   return new ApiError(403, key);
 }
+
+// 404 Not Found: the addressed resource does not exist.
+export function notFound(key = "not_found"): ApiError {
+  return new ApiError(404, key);
+}
