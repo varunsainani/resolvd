@@ -23,10 +23,12 @@ export function createApp() {
     res.json({ ok: true, service: "resolvd-api" });
   });
 
-  // JSON error handler (body-parser errors, unexpected async throws)
+  // JSON error handler (ApiError, body-parser errors, unexpected async throws)
   app.use((err: any, req: Request, res: Response, _next: NextFunction) => {
     const status = typeof err?.status === "number" ? err.status : 500;
-    const key = status >= 500 ? "server_error" : "invalid_input";
+    // ApiError carries a specific i18n key; otherwise fall back by status class.
+    const key =
+      typeof err?.key === "string" ? err.key : status >= 500 ? "server_error" : "invalid_input";
     if (status >= 500) {
       // eslint-disable-next-line no-console
       console.error("[resolvd] unhandled error:", err?.message || err);
