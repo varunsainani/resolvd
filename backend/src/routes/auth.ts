@@ -31,3 +31,17 @@ authRouter.post("/signup", async (req, res) => {
   });
   res.status(201).json(authPayload(user));
 });
+
+// POST /api/auth/login — exchange email + password for a bearer token.
+authRouter.post("/login", async (req, res) => {
+  const body = req.body ?? {};
+  const email = requireEmail(body.email, "invalid_credentials");
+  const password =
+    typeof body.password === "string" ? body.password : "";
+
+  const user = await prisma.user.findUnique({ where: { email } });
+  if (!user || !(await verifyPassword(password, user.passwordHash))) {
+    throw new ApiError(401, "invalid_credentials");
+  }
+  res.json(authPayload(user));
+});
