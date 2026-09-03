@@ -1,6 +1,9 @@
 import type { Customer } from "@prisma/client";
 
-import { colorForTag } from "../lib/constants";
+import { triageTicket } from "../ai";
+import type { LLMProvider } from "../llm";
+import { ChannelValue, TicketPriorityValue, colorForTag } from "../lib/constants";
+import { computeSlaDueDates } from "../lib/sla";
 import { prisma } from "../prisma";
 
 export interface CustomerInput {
@@ -36,4 +39,50 @@ export async function applyTags(ticketId: string, tagNames: string[]): Promise<v
       create: { ticketId, tagId: tag.id },
     });
   }
+}
+
+export interface IntakeInput {
+  subject: string;
+  message: string;
+  customer: CustomerInput;
+  channel?: ChannelValue;
+  // Optional manual priority; when omitted the AI-triaged priority is used.
+  priorityOverride?: TicketPriorityValue;
+}
+
+// Create a ticket the way it lands from any channel: reuse or create the
+// customer, run AI triage on the opening message, seed the SLA clocks from the
+// resulting priority, record the customer's message, and attach triage tags.
+export async function createTicketFromIntake(
+  input: IntakeInput,
+  provider?: LLMProvider,
+): Promise<string> {
+  const customer = await upsertCustomer(input.customer);
+  const triage = await triageTicket(
+    { subject: input.subject, message: input.message, customerName: customer.name },
+    provider,
+  );
+
+  const priority = input.priorityOverride ?? triage.priority;
+  const now = new Date();
+  const { firstDue, resolveDue } = computeSlaDueDates(priority, now);
+
+  const ticket = await prisma.ticket.create({
+    data: {
+      subject: input.subject,
+      channel: input.channel ?? "WEB",
+      priority,
+      category: triage.category,
+      sentiment: triage.sentiment,
+      summary: triage.summary,
+      aiTriaged: triage.source === "ai",
+      customerId: customer.id,
+      slaFirstDueAt: firstDue,
+      slaResolveDueAt: resolveDue,
+      messages: { create: { authorType: "CUSTOMER", body: input.message } },
+    },
+  });
+
+  await applyTags(ticket.id, triage.tags);
+  return ticket.id;
 }
