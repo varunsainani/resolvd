@@ -12,3 +12,8 @@ export class ApiError extends Error {
     this.key = key;
   }
 }
+
+// 400 Bad Request: the client sent something we cannot accept.
+export function badRequest(key = "invalid_input"): ApiError {
+  return new ApiError(400, key);
+}
