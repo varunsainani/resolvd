@@ -2,9 +2,10 @@ import type { Prisma } from "@prisma/client";
 import { Router } from "express";
 
 import { TICKET_PRIORITIES, TICKET_STATUSES } from "../lib/constants";
-import { ticketRowInclude } from "../lib/include";
+import { notFound } from "../lib/http";
+import { ticketDetailInclude, ticketRowInclude } from "../lib/include";
 import { buildPageMeta, parsePageParams } from "../lib/pagination";
-import { serializeTicketRow } from "../lib/serialize";
+import { serializeTicketDetail, serializeTicketRow } from "../lib/serialize";
 import { requireUser } from "../middleware/auth";
 import { prisma } from "../prisma";
 
@@ -76,4 +77,20 @@ ticketsRouter.get("/", async (req, res) => {
     data: rows.map((r) => serializeTicketRow(r, now)),
     meta: buildPageMeta(total, page),
   });
+});
+
+// Load a ticket with its full detail relations, or throw a localized 404.
+async function loadTicketDetail(id: string) {
+  const ticket = await prisma.ticket.findUnique({
+    where: { id },
+    include: ticketDetailInclude,
+  });
+  if (!ticket) throw notFound("ticket_not_found");
+  return ticket;
+}
+
+// GET /api/tickets/:id — full ticket with the conversation thread.
+ticketsRouter.get("/:id", async (req, res) => {
+  const ticket = await loadTicketDetail(req.params.id);
+  res.json({ ticket: serializeTicketDetail(ticket, new Date()) });
 });
