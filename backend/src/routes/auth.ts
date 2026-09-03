@@ -1,6 +1,7 @@
 import { Router } from "express";
 
 import { hashPassword, signToken, verifyPassword } from "../auth";
+import { config } from "../config";
 import { ApiError } from "../lib/http";
 import { serializeUser } from "../lib/serialize";
 import { requireEmail, requirePassword, requireString } from "../lib/validate";
@@ -41,6 +42,16 @@ authRouter.post("/login", async (req, res) => {
 
   const user = await prisma.user.findUnique({ where: { email } });
   if (!user || !(await verifyPassword(password, user.passwordHash))) {
+    throw new ApiError(401, "invalid_credentials");
+  }
+  res.json(authPayload(user));
+});
+
+// POST /api/auth/demo — one-click sign-in to the shared demo account.
+// No password: the button lets visitors explore the product instantly.
+authRouter.post("/demo", async (_req, res) => {
+  const user = await prisma.user.findUnique({ where: { email: config.demoEmail } });
+  if (!user) {
     throw new ApiError(401, "invalid_credentials");
   }
   res.json(authPayload(user));
