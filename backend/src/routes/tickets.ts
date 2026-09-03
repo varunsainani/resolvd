@@ -1,13 +1,20 @@
 import type { Prisma } from "@prisma/client";
 import { Router } from "express";
 
-import { TICKET_PRIORITIES, TICKET_STATUSES } from "../lib/constants";
+import { CHANNELS, TICKET_PRIORITIES, TICKET_STATUSES } from "../lib/constants";
 import { notFound } from "../lib/http";
 import { ticketDetailInclude, ticketRowInclude } from "../lib/include";
 import { buildPageMeta, parsePageParams } from "../lib/pagination";
 import { serializeTicketDetail, serializeTicketRow } from "../lib/serialize";
+import {
+  oneOf,
+  optionalString,
+  requireEmail,
+  requireString,
+} from "../lib/validate";
 import { requireUser } from "../middleware/auth";
 import { prisma } from "../prisma";
+import { createTicketFromIntake } from "../services/tickets";
 
 export const ticketsRouter = Router();
 
@@ -93,4 +100,31 @@ async function loadTicketDetail(id: string) {
 ticketsRouter.get("/:id", async (req, res) => {
   const ticket = await loadTicketDetail(req.params.id);
   res.json({ ticket: serializeTicketDetail(ticket, new Date()) });
+});
+
+// POST /api/tickets — create a ticket from an agent-entered intake. The opening
+// message is AI-triaged and the SLA clocks start from the resulting priority.
+ticketsRouter.post("/", async (req, res) => {
+  const body = req.body ?? {};
+  const cust = body.customer ?? {};
+
+  const subject = requireString(body.subject, "subject_required");
+  const message = requireString(body.message, "message_required");
+  const customerName = requireString(cust.name, "name_required");
+  const customerEmail = requireEmail(cust.email);
+
+  const channel = body.channel !== undefined ? oneOf(body.channel, CHANNELS, "invalid_input") : undefined;
+  const priorityOverride =
+    body.priority !== undefined ? oneOf(body.priority, TICKET_PRIORITIES, "invalid_priority") : undefined;
+
+  const ticketId = await createTicketFromIntake({
+    subject,
+    message,
+    channel,
+    priorityOverride,
+    customer: { name: customerName, email: customerEmail, company: optionalString(cust.company) },
+  });
+
+  const ticket = await loadTicketDetail(ticketId);
+  res.status(201).json({ ticket: serializeTicketDetail(ticket, new Date()) });
 });
