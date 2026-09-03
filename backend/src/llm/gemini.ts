@@ -1,4 +1,4 @@
-import { BACKOFFS, LLMProvider, RETRY_STATUSES, sleep } from "./base";
+import { BACKOFFS, LLMProvider, RETRY_STATUSES, fetchWithTimeout, sleep } from "./base";
 
 const GEMINI_URL =
   "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent";
@@ -21,11 +21,21 @@ export class GeminiProvider implements LLMProvider {
       },
     };
     for (let attempt = 0; attempt <= BACKOFFS.length; attempt++) {
-      const res = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
+      let res: Response;
+      try {
+        res = await fetchWithTimeout(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+      } catch {
+        // Timeout or network error: retry with backoff, then give up (fallback).
+        if (attempt < BACKOFFS.length) {
+          await sleep(BACKOFFS[attempt]);
+          continue;
+        }
+        throw new Error("gemini timeout");
+      }
       if (!res.ok) {
         if (RETRY_STATUSES.has(res.status) && attempt < BACKOFFS.length) {
           await sleep(BACKOFFS[attempt]);
