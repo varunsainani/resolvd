@@ -22,3 +22,8 @@ export function badRequest(key = "invalid_input"): ApiError {
 export function unauthorized(key = "not_authenticated"): ApiError {
   return new ApiError(401, key);
 }
+
+// 403 Forbidden: authenticated, but not allowed to perform this action.
+export function forbidden(key = "forbidden"): ApiError {
+  return new ApiError(403, key);
+}
