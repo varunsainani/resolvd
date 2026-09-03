@@ -17,3 +17,16 @@ export function optionalString(value: unknown): string | undefined {
   const trimmed = value.trim();
   return trimmed === "" ? undefined : trimmed;
 }
+
+// Lenient email check: one @, non-empty local and domain parts, a dot in the
+// domain. Deliberately permissive so we accept real addresses without a heavy
+// regex, then normalize to lowercase.
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+export function requireEmail(value: unknown, key = "email_required"): string {
+  const raw = typeof value === "string" ? value.trim().toLowerCase() : "";
+  if (!EMAIL_RE.test(raw)) {
+    throw badRequest(key);
+  }
+  return raw;
+}
