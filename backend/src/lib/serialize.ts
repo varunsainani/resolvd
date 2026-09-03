@@ -105,3 +105,15 @@ export function serializeTicketRow(t: TicketWithRelations, now: Date) {
     sla: serializeSla(t, now),
   };
 }
+
+// Full ticket shape for the detail view: the row plus the AI summary, response
+// timestamps, and the ordered conversation thread.
+export function serializeTicketDetail(t: TicketWithRelations, now: Date) {
+  return {
+    ...serializeTicketRow(t, now),
+    summary: t.summary,
+    firstResponseAt: t.firstResponseAt ? t.firstResponseAt.toISOString() : null,
+    resolvedAt: t.resolvedAt ? t.resolvedAt.toISOString() : null,
+    messages: (t.messages || []).map(serializeMessage),
+  };
+}
