@@ -1,10 +1,17 @@
 import type { Prisma } from "@prisma/client";
 import { Router } from "express";
 
-import { CHANNELS, TICKET_PRIORITIES, TICKET_STATUSES } from "../lib/constants";
+import {
+  CHANNELS,
+  TICKET_PRIORITIES,
+  TICKET_STATUSES,
+  TicketPriorityValue,
+  normalizeCategory,
+} from "../lib/constants";
 import { notFound } from "../lib/http";
 import { ticketDetailInclude, ticketRowInclude } from "../lib/include";
 import { buildPageMeta, parsePageParams } from "../lib/pagination";
+import { computeSlaDueDates } from "../lib/sla";
 import { serializeTicketDetail, serializeTicketRow } from "../lib/serialize";
 import {
   oneOf,
@@ -127,4 +134,50 @@ ticketsRouter.post("/", async (req, res) => {
 
   const ticket = await loadTicketDetail(ticketId);
   res.status(201).json({ ticket: serializeTicketDetail(ticket, new Date()) });
+});
+
+// Confirm an assignee id points to a real user, or throw a localized 404.
+async function resolveAssignee(assigneeId: unknown): Promise<string | null> {
+  if (assigneeId === null || assigneeId === "") return null;
+  if (typeof assigneeId !== "string") throw notFound("assignee_not_found");
+  const agent = await prisma.user.findUnique({ where: { id: assigneeId } });
+  if (!agent) throw notFound("assignee_not_found");
+  return agent.id;
+}
+
+// PATCH /api/tickets/:id — change status, priority, category, or assignee.
+ticketsRouter.patch("/:id", async (req, res) => {
+  const existing = await prisma.ticket.findUnique({ where: { id: req.params.id } });
+  if (!existing) throw notFound("ticket_not_found");
+
+  const body = req.body ?? {};
+  const data: Prisma.TicketUpdateInput = {};
+
+  if (body.status !== undefined) {
+    const status = oneOf(body.status, TICKET_STATUSES, "invalid_status");
+    data.status = status;
+    const closing = status === "RESOLVED" || status === "CLOSED";
+    if (closing && !existing.resolvedAt) data.resolvedAt = new Date();
+    if (!closing && existing.resolvedAt) data.resolvedAt = null;
+  }
+
+  if (body.priority !== undefined) {
+    const priority = oneOf(body.priority, TICKET_PRIORITIES, "invalid_priority") as TicketPriorityValue;
+    data.priority = priority;
+    // SLA clocks run from creation, so recompute both deadlines for the new tier.
+    const { firstDue, resolveDue } = computeSlaDueDates(priority, existing.createdAt);
+    data.slaFirstDueAt = firstDue;
+    data.slaResolveDueAt = resolveDue;
+  }
+
+  if (body.category !== undefined) data.category = normalizeCategory(body.category);
+
+  if (body.assigneeId !== undefined) {
+    const id = await resolveAssignee(body.assigneeId);
+    data.assignee = id ? { connect: { id } } : { disconnect: true };
+  }
+
+  await prisma.ticket.update({ where: { id: existing.id }, data });
+  const ticket = await loadTicketDetail(existing.id);
+  res.json({ ticket: serializeTicketDetail(ticket, new Date()) });
 });
