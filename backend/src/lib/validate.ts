@@ -10,3 +10,10 @@ export function requireString(value: unknown, key = "invalid_input"): string {
   }
   return value.trim();
 }
+
+// Coerce an optional field to a trimmed string, or undefined when absent/blank.
+export function optionalString(value: unknown): string | undefined {
+  if (typeof value !== "string") return undefined;
+  const trimmed = value.trim();
+  return trimmed === "" ? undefined : trimmed;
+}
