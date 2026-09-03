@@ -1,4 +1,6 @@
-import type { Customer, Message, User } from "@prisma/client";
+import type { Customer, Message, Ticket, User } from "@prisma/client";
+
+import { minutesRemaining, slaState } from "./sla";
 
 // Public shape of an authenticated user (never leaks the password hash).
 export function serializeUser(u: User) {
@@ -47,4 +49,24 @@ export function serializeMessage(m: MessageWithAuthor) {
 // Ticket tags arrive as TicketTag join rows with an included `tag`.
 export function serializeTag(row: { tag: { name: string; color: string } }) {
   return { name: row.tag.name, color: row.tag.color };
+}
+
+// Two SLA milestones (first response, resolution) as state + minutes left,
+// ready to drive the countdown badges in the UI.
+export function serializeSla(t: Ticket, now: Date) {
+  const firstDone = t.firstResponseAt != null;
+  const resolveDone =
+    t.resolvedAt != null || t.status === "RESOLVED" || t.status === "CLOSED";
+  return {
+    firstResponse: {
+      dueAt: t.slaFirstDueAt ? t.slaFirstDueAt.toISOString() : null,
+      state: slaState(t.slaFirstDueAt, now, firstDone),
+      minutesRemaining: minutesRemaining(t.slaFirstDueAt, now),
+    },
+    resolution: {
+      dueAt: t.slaResolveDueAt ? t.slaResolveDueAt.toISOString() : null,
+      state: slaState(t.slaResolveDueAt, now, resolveDone),
+      minutesRemaining: minutesRemaining(t.slaResolveDueAt, now),
+    },
+  };
 }
