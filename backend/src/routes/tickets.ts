@@ -181,3 +181,22 @@ ticketsRouter.patch("/:id", async (req, res) => {
   const ticket = await loadTicketDetail(existing.id);
   res.json({ ticket: serializeTicketDetail(ticket, new Date()) });
 });
+
+// POST /api/tickets/:id/assign — claim a ticket. With no body it assigns to the
+// caller ("assign to me"); pass assigneeId to hand it to another agent, or null
+// to release it back to the queue.
+ticketsRouter.post("/:id/assign", async (req, res) => {
+  const existing = await prisma.ticket.findUnique({ where: { id: req.params.id } });
+  if (!existing) throw notFound("ticket_not_found");
+
+  const body = req.body ?? {};
+  const target = body.assigneeId === undefined ? req.userId : body.assigneeId;
+  const id = await resolveAssignee(target);
+
+  await prisma.ticket.update({
+    where: { id: existing.id },
+    data: { assignee: id ? { connect: { id } } : { disconnect: true } },
+  });
+  const ticket = await loadTicketDetail(existing.id);
+  res.json({ ticket: serializeTicketDetail(ticket, new Date()) });
+});
