@@ -70,3 +70,38 @@ export function serializeSla(t: Ticket, now: Date) {
     },
   };
 }
+
+type AgentRef = Pick<User, "id" | "name" | "avatarColor">;
+type TagRow = { tag: { name: string; color: string } };
+
+// A ticket with the relations the list and detail views include.
+export type TicketWithRelations = Ticket & {
+  customer?: Customer | null;
+  assignee?: AgentRef | null;
+  tags?: TagRow[];
+  messages?: MessageWithAuthor[];
+  _count?: { messages: number };
+};
+
+// Compact ticket shape for the inbox list: enough to render a row without the
+// full conversation. `now` drives the SLA badges.
+export function serializeTicketRow(t: TicketWithRelations, now: Date) {
+  return {
+    id: t.id,
+    reference: t.reference,
+    subject: t.subject,
+    status: t.status,
+    priority: t.priority,
+    channel: t.channel,
+    category: t.category,
+    sentiment: t.sentiment,
+    aiTriaged: t.aiTriaged,
+    customer: t.customer ? serializeCustomer(t.customer) : null,
+    assignee: serializeAgentRef(t.assignee),
+    tags: (t.tags || []).map(serializeTag),
+    messageCount: t._count?.messages ?? t.messages?.length ?? 0,
+    createdAt: t.createdAt.toISOString(),
+    updatedAt: t.updatedAt.toISOString(),
+    sla: serializeSla(t, now),
+  };
+}
