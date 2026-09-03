@@ -30,7 +30,7 @@ ticketsRouter.use(requireUser);
 
 // Translate the `sort` query into a Prisma orderBy. Enum columns order by
 // declaration, so priority desc surfaces URGENT first.
-function orderFor(sort: unknown): Prisma.TicketOrderByWithRelationInput[] {
+export function orderFor(sort: unknown): Prisma.TicketOrderByWithRelationInput[] {
   switch (sort) {
     case "oldest":
       return [{ createdAt: "asc" }];
