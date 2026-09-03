@@ -47,3 +47,14 @@ export function oneOf<T extends string>(value: unknown, allowed: readonly T[], k
   }
   throw badRequest(key);
 }
+
+// Coerce a loosely-typed flag (checkbox, string, boolean) into a real boolean.
+// The strings "false", "0", and "" read as false so query/form values behave.
+export function coerceBoolean(value: unknown): boolean {
+  if (typeof value === "boolean") return value;
+  if (typeof value === "string") {
+    const v = value.trim().toLowerCase();
+    return v !== "" && v !== "false" && v !== "0";
+  }
+  return Boolean(value);
+}
