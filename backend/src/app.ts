@@ -5,6 +5,7 @@ import "express-async-errors";
 import { config } from "./config";
 import { t } from "./i18n";
 import { locale } from "./middleware/auth";
+import { registerRoutes } from "./routes";
 
 export function createApp() {
   const app = express();
@@ -22,6 +23,8 @@ export function createApp() {
   app.get("/health", (_req, res) => {
     res.json({ ok: true, service: "resolvd-api" });
   });
+
+  registerRoutes(app);
 
   // JSON error handler (ApiError, body-parser errors, unexpected async throws)
   app.use((err: any, req: Request, res: Response, _next: NextFunction) => {
