@@ -54,6 +54,9 @@ ticketsRouter.get("/", async (req, res) => {
   if (typeof q.priority === "string" && (TICKET_PRIORITIES as readonly string[]).includes(q.priority)) {
     where.priority = q.priority as Prisma.TicketWhereInput["priority"];
   }
+  if (typeof q.channel === "string" && (CHANNELS as readonly string[]).includes(q.channel)) {
+    where.channel = q.channel as Prisma.TicketWhereInput["channel"];
+  }
   if (q.assignee === "me") {
     where.assigneeId = req.userId;
   } else if (q.assignee === "unassigned") {
