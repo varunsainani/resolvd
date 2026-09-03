@@ -39,3 +39,11 @@ export function requirePassword(value: unknown, key = "password_too_short"): str
   }
   return value;
 }
+
+// Require the value to be one of an allowed set, else throw with `key`.
+export function oneOf<T extends string>(value: unknown, allowed: readonly T[], key: string): T {
+  if (typeof value === "string" && (allowed as readonly string[]).includes(value)) {
+    return value as T;
+  }
+  throw badRequest(key);
+}
