@@ -17,3 +17,8 @@ export class ApiError extends Error {
 export function badRequest(key = "invalid_input"): ApiError {
   return new ApiError(400, key);
 }
+
+// 401 Unauthorized: the request is missing or has invalid credentials.
+export function unauthorized(key = "not_authenticated"): ApiError {
+  return new ApiError(401, key);
+}
