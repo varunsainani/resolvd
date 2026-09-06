@@ -75,6 +75,7 @@ describe("assembleAnalytics totals", () => {
       open: 2,
       unassigned: 1,
       resolved: 2,
+      resolutionRate: 50,
       aiTriagedPercent: 50,
     });
   });
