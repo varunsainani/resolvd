@@ -4,6 +4,7 @@ import { triageTicket } from "../ai";
 import type { LLMProvider } from "../llm";
 import { ChannelValue, TicketPriorityValue, colorForTag } from "../lib/constants";
 import { computeSlaDueDates } from "../lib/sla";
+import { normalizeTagName } from "../lib/tags";
 import { prisma } from "../prisma";
 
 export interface CustomerInput {
@@ -26,7 +27,7 @@ export async function upsertCustomer(input: CustomerInput): Promise<Customer> {
 // vocabulary (with a stable color) and linked idempotently, so re-triage or a
 // repeated tag never throws on the composite key.
 export async function applyTags(ticketId: string, tagNames: string[]): Promise<void> {
-  const unique = Array.from(new Set(tagNames.map((n) => n.toLowerCase().trim()).filter(Boolean)));
+  const unique = Array.from(new Set(tagNames.map(normalizeTagName).filter(Boolean)));
   for (const name of unique) {
     const tag = await prisma.tag.upsert({
       where: { name },
@@ -39,6 +40,16 @@ export async function applyTags(ticketId: string, tagNames: string[]): Promise<v
       create: { ticketId, tagId: tag.id },
     });
   }
+}
+
+// Remove a tag from a ticket. No-op if the tag or the link does not exist, so
+// the DELETE endpoint is idempotent.
+export async function removeTicketTag(ticketId: string, rawName: string): Promise<void> {
+  const name = normalizeTagName(rawName);
+  if (!name) return;
+  const tag = await prisma.tag.findUnique({ where: { name } });
+  if (!tag) return;
+  await prisma.ticketTag.deleteMany({ where: { ticketId, tagId: tag.id } });
 }
 
 export interface IntakeInput {
