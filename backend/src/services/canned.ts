@@ -15,3 +15,14 @@ export function cannedSearchWhere(search: string, category?: string): Prisma.Can
   if (cat) where.category = cat;
   return where;
 }
+
+// Map the `sort` query into a Prisma orderBy for the canned list. Default is
+// alphabetical by title, since agents scan macros by name.
+export function cannedOrderBy(sort: unknown): Prisma.CannedResponseOrderByWithRelationInput {
+  switch (sort) {
+    case "recent":
+      return { createdAt: "desc" };
+    default:
+      return { title: "asc" };
+  }
+}

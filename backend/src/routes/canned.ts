@@ -7,7 +7,7 @@ import { serializeCannedResponse } from "../lib/serialize";
 import { requireString } from "../lib/validate";
 import { requireUser } from "../middleware/auth";
 import { prisma } from "../prisma";
-import { cannedSearchWhere } from "../services/canned";
+import { cannedOrderBy, cannedSearchWhere } from "../services/canned";
 
 export const cannedRouter = Router();
 
@@ -26,7 +26,7 @@ cannedRouter.get("/", async (req, res) => {
     prisma.cannedResponse.count({ where }),
     prisma.cannedResponse.findMany({
       where,
-      orderBy: { title: "asc" },
+      orderBy: cannedOrderBy(q.sort),
       skip: page.skip,
       take: page.take,
     }),
