@@ -56,6 +56,15 @@ export function bucketByDay(
   return series;
 }
 
+// Whether an SLA milestone is breached: completed after its deadline, or still
+// open with the deadline already in the past. No deadline set reads as not
+// breached (nothing to miss).
+export function slaBreached(dueAt: Date | null, doneAt: Date | null, now: Date): boolean {
+  if (!dueAt) return false;
+  if (doneAt) return doneAt.getTime() > dueAt.getTime();
+  return now.getTime() > dueAt.getTime();
+}
+
 // Count occurrences of each value.
 export function tally(values: string[]): Record<string, number> {
   const out: Record<string, number> = {};
