@@ -50,5 +50,58 @@
     "orContinue": "or",
     "noAccount": "Don't have an account?",
     "haveAccount": "Already have an account?"
+  },
+  "ticket": {
+    "status": {
+      "OPEN": "Open",
+      "PENDING": "Pending",
+      "RESOLVED": "Resolved",
+      "CLOSED": "Closed"
+    },
+    "priority": {
+      "LOW": "Low",
+      "NORMAL": "Normal",
+      "HIGH": "High",
+      "URGENT": "Urgent"
+    },
+    "channel": {
+      "EMAIL": "Email",
+      "CHAT": "Chat",
+      "WEB": "Web",
+      "PHONE": "Phone"
+    },
+    "sentiment": {
+      "POSITIVE": "Positive",
+      "NEUTRAL": "Neutral",
+      "NEGATIVE": "Negative"
+    }
+  },
+  "sla": {
+    "firstResponse": "First response",
+    "resolution": "Resolution",
+    "met": "Met",
+    "onTrack": "On track",
+    "dueSoon": "Due soon",
+    "breached": "Breached",
+    "remaining": "{time} left",
+    "overdue": "{time} overdue"
+  },
+  "analytics": {
+    "title": "Analytics",
+    "total": "Total tickets",
+    "open": "Open",
+    "unassigned": "Unassigned",
+    "resolved": "Resolved",
+    "resolutionRate": "Resolution rate",
+    "aiTriaged": "AI triaged",
+    "avgFirstResponse": "Avg first response",
+    "avgResolution": "Avg resolution",
+    "slaBreaches": "SLA breaches",
+    "byStatus": "By status",
+    "byPriority": "By priority",
+    "byChannel": "By channel",
+    "byCategory": "By category",
+    "bySentiment": "By sentiment",
+    "trend": "Tickets over time"
   }
 }

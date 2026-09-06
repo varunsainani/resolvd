@@ -50,5 +50,58 @@
     "orContinue": "ou",
     "noAccount": "Não tem uma conta?",
     "haveAccount": "Já tem uma conta?"
+  },
+  "ticket": {
+    "status": {
+      "OPEN": "Aberto",
+      "PENDING": "Pendente",
+      "RESOLVED": "Resolvido",
+      "CLOSED": "Fechado"
+    },
+    "priority": {
+      "LOW": "Baixa",
+      "NORMAL": "Normal",
+      "HIGH": "Alta",
+      "URGENT": "Urgente"
+    },
+    "channel": {
+      "EMAIL": "E-mail",
+      "CHAT": "Chat",
+      "WEB": "Web",
+      "PHONE": "Telefone"
+    },
+    "sentiment": {
+      "POSITIVE": "Positivo",
+      "NEUTRAL": "Neutro",
+      "NEGATIVE": "Negativo"
+    }
+  },
+  "sla": {
+    "firstResponse": "Primeira resposta",
+    "resolution": "Resolução",
+    "met": "Cumprido",
+    "onTrack": "No prazo",
+    "dueSoon": "Vence em breve",
+    "breached": "Violado",
+    "remaining": "faltam {time}",
+    "overdue": "{time} de atraso"
+  },
+  "analytics": {
+    "title": "Análises",
+    "total": "Total de tickets",
+    "open": "Abertos",
+    "unassigned": "Não atribuídos",
+    "resolved": "Resolvidos",
+    "resolutionRate": "Taxa de resolução",
+    "aiTriaged": "Triados por IA",
+    "avgFirstResponse": "Primeira resposta média",
+    "avgResolution": "Resolução média",
+    "slaBreaches": "Violações de SLA",
+    "byStatus": "Por status",
+    "byPriority": "Por prioridade",
+    "byChannel": "Por canal",
+    "byCategory": "Por categoria",
+    "bySentiment": "Por sentimento",
+    "trend": "Tickets ao longo do tempo"
   }
 }
