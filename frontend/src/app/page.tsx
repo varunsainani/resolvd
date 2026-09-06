@@ -1,3 +1,4 @@
+import { SkipLink } from "@/components/a11y/skip-link";
 import { CtaSection } from "@/components/landing/cta-section";
 import { FeatureGrid } from "@/components/landing/feature-grid";
 import { Hero } from "@/components/landing/hero";
@@ -10,8 +11,9 @@ import { StatStrip } from "@/components/landing/stat-strip";
 export default function Home() {
   return (
     <div className="flex min-h-dvh flex-col">
+      <SkipLink />
       <LandingNav />
-      <main className="flex-1">
+      <main id="main" className="flex-1">
         <Hero />
         <StatStrip />
         <FeatureGrid />

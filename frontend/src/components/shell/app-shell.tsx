@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
+import { SkipLink } from "@/components/a11y/skip-link";
 import { useAuth } from "@/components/auth/auth-provider";
 import { Spinner } from "@/components/ui/spinner";
 import { Sidebar } from "./sidebar";
@@ -29,10 +30,13 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="flex min-h-dvh">
+      <SkipLink />
       <Sidebar />
       <div className="flex min-w-0 flex-1 flex-col">
         <Topbar />
-        <main className="flex-1 p-4 md:p-6">{children}</main>
+        <main id="main" className="flex-1 p-4 md:p-6">
+          {children}
+        </main>
       </div>
     </div>
   );
