@@ -114,6 +114,14 @@ export function serializeTag(row: { tag: { name: string; color: string } }) {
   return { name: row.tag.name, color: row.tag.color };
 }
 
+// A tag from the shared vocabulary with how many tickets carry it, for the tag
+// roster / filter chips.
+export type TagWithCount = { id: string; name: string; color: string; _count?: { tickets: number } };
+
+export function serializeTagRecord(t: TagWithCount) {
+  return { id: t.id, name: t.name, color: t.color, count: t._count?.tickets ?? 0 };
+}
+
 // Two SLA milestones (first response, resolution) as state + minutes left,
 // ready to drive the countdown badges in the UI.
 export function serializeSla(t: Ticket, now: Date) {
