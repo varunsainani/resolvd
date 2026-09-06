@@ -2,6 +2,7 @@ import { Router } from "express";
 
 import { config } from "../config";
 import { ApiError, notFound } from "../lib/http";
+import { parseReference } from "../lib/reference";
 import { hitDailyLimit } from "../lib/rate-limit";
 import { serializePublicTicket } from "../lib/serialize";
 import { optionalString, requireEmail, requireString } from "../lib/validate";
@@ -41,9 +42,9 @@ publicRouter.post("/tickets", async (req, res) => {
 // ticket they opened. The email must match the ticket's customer so references
 // cannot be enumerated.
 publicRouter.get("/tickets/:reference", async (req, res) => {
-  const reference = Number(String(req.params.reference).replace(/^#/, ""));
+  const reference = parseReference(req.params.reference);
   const email = requireEmail(req.query.email);
-  if (!Number.isInteger(reference) || reference <= 0) throw notFound("ticket_not_found");
+  if (reference === null) throw notFound("ticket_not_found");
 
   const ticket = await prisma.ticket.findUnique({
     where: { reference },

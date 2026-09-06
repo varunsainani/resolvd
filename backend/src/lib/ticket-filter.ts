@@ -1,6 +1,7 @@
 import type { Prisma } from "@prisma/client";
 
 import { CHANNELS, TICKET_PRIORITIES, TICKET_STATUSES } from "./constants";
+import { parseReference } from "./reference";
 
 // Build the Prisma WHERE clause for the inbox list from raw query params. Pure
 // and self-contained so the filter and search rules are unit tested without a
@@ -36,8 +37,8 @@ export function buildTicketWhere(
       { customer: { name: { contains: search, mode: "insensitive" } } },
       { customer: { email: { contains: search, mode: "insensitive" } } },
     ];
-    const ref = Number(search.replace(/^#/, ""));
-    if (Number.isInteger(ref) && ref > 0) or.push({ reference: ref });
+    const ref = parseReference(search);
+    if (ref !== null) or.push({ reference: ref });
     where.OR = or;
   }
 
