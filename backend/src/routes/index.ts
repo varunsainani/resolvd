@@ -9,6 +9,7 @@ import { customersRouter } from "./customers";
 import { kbRouter } from "./kb";
 import { messagesRouter } from "./messages";
 import { publicRouter } from "./public";
+import { tagsRouter } from "./tags";
 import { ticketsRouter } from "./tickets";
 
 // Mount every API router under /api. Called from createApp before the error
@@ -21,6 +22,7 @@ export function registerRoutes(app: Express): void {
   app.use("/api/customers", customersRouter);
   app.use("/api/kb", kbRouter);
   app.use("/api/canned", cannedRouter);
+  app.use("/api/tags", tagsRouter);
   app.use("/api/analytics", analyticsRouter);
   app.use("/api/agents", agentsRouter);
   app.use("/api/admin", adminRouter);
