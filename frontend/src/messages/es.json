@@ -2,5 +2,11 @@
   "app": {
     "name": "Resolvd",
     "tagline": "Centro de soporte con IA"
+  },
+  "common": {
+    "toggleTheme": "Cambiar tema",
+    "language": "Idioma",
+    "loading": "Cargando",
+    "search": "Buscar"
   }
 }

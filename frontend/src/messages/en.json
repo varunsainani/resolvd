@@ -2,5 +2,11 @@
   "app": {
     "name": "Resolvd",
     "tagline": "AI support desk"
+  },
+  "common": {
+    "toggleTheme": "Toggle theme",
+    "language": "Language",
+    "loading": "Loading",
+    "search": "Search"
   }
 }
