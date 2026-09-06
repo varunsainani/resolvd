@@ -46,6 +46,7 @@ export const TREND_DAYS = 14;
 export function assembleAnalytics(rows: AnalyticsRow[], now: Date) {
   const total = rows.length;
   const unresolved = rows.filter((r) => UNRESOLVED.has(r.status));
+  const resolved = rows.filter((r) => r.status === "RESOLVED" || r.status === "CLOSED").length;
 
   const firstResponseBreaches = rows.filter((r) =>
     slaBreached(r.slaFirstDueAt, r.firstResponseAt, now),
@@ -59,7 +60,8 @@ export function assembleAnalytics(rows: AnalyticsRow[], now: Date) {
       total,
       open: unresolved.length,
       unassigned: unresolved.filter((r) => r.assigneeId == null).length,
-      resolved: rows.filter((r) => r.status === "RESOLVED" || r.status === "CLOSED").length,
+      resolved,
+      resolutionRate: percentage(resolved, total),
       aiTriagedPercent: percentage(rows.filter((r) => r.aiTriaged).length, total),
     },
     sla: {
