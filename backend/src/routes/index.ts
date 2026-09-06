@@ -1,5 +1,7 @@
 import type { Express } from "express";
 
+import { agentsRouter } from "./agents";
+import { analyticsRouter } from "./analytics";
 import { authRouter } from "./auth";
 import { cannedRouter } from "./canned";
 import { customersRouter } from "./customers";
@@ -17,4 +19,6 @@ export function registerRoutes(app: Express): void {
   app.use("/api/customers", customersRouter);
   app.use("/api/kb", kbRouter);
   app.use("/api/canned", cannedRouter);
+  app.use("/api/analytics", analyticsRouter);
+  app.use("/api/agents", agentsRouter);
 }
