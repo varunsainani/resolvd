@@ -7,7 +7,7 @@ import { serializeKbArticle } from "../lib/serialize";
 import { optionalString, requireString } from "../lib/validate";
 import { requireUser } from "../middleware/auth";
 import { prisma } from "../prisma";
-import { kbSearchWhere } from "../services/kb";
+import { kbOrderBy, kbSearchWhere } from "../services/kb";
 
 export const kbRouter = Router();
 
@@ -26,7 +26,7 @@ kbRouter.get("/", async (req, res) => {
     prisma.kbArticle.count({ where }),
     prisma.kbArticle.findMany({
       where,
-      orderBy: { updatedAt: "desc" },
+      orderBy: kbOrderBy(q.sort),
       skip: page.skip,
       take: page.take,
     }),

@@ -17,3 +17,16 @@ export function kbSearchWhere(search: string, category?: string): Prisma.KbArtic
   if (cat) where.category = cat;
   return where;
 }
+
+// Map the `sort` query into a Prisma orderBy for the KB list. Default is most
+// recently updated first (freshest guidance on top).
+export function kbOrderBy(sort: unknown): Prisma.KbArticleOrderByWithRelationInput {
+  switch (sort) {
+    case "title":
+      return { title: "asc" };
+    case "oldest":
+      return { createdAt: "asc" };
+    default:
+      return { updatedAt: "desc" };
+  }
+}
