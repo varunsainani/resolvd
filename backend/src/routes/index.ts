@@ -1,7 +1,9 @@
 import type { Express } from "express";
 
 import { authRouter } from "./auth";
+import { cannedRouter } from "./canned";
 import { customersRouter } from "./customers";
+import { kbRouter } from "./kb";
 import { messagesRouter } from "./messages";
 import { ticketsRouter } from "./tickets";
 
@@ -13,4 +15,6 @@ export function registerRoutes(app: Express): void {
   // Conversation actions (reply, AI suggest) hang off a specific ticket.
   app.use("/api/tickets/:ticketId", messagesRouter);
   app.use("/api/customers", customersRouter);
+  app.use("/api/kb", kbRouter);
+  app.use("/api/canned", cannedRouter);
 }
