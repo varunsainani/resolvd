@@ -7,6 +7,7 @@ import "./globals.css";
 import { AuthProvider } from "@/components/auth/auth-provider";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { ThemeScript } from "@/components/theme/theme-script";
+import { ToastProvider } from "@/components/ui/toast";
 
 // Inter for body/UI text, Plus Jakarta Sans for display headings.
 const inter = Inter({
@@ -52,7 +53,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <ThemeScript />
         <NextIntlClientProvider>
           <ThemeProvider>
-            <AuthProvider>{children}</AuthProvider>
+            <ToastProvider>
+              <AuthProvider>{children}</AuthProvider>
+            </ToastProvider>
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
