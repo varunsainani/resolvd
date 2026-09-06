@@ -38,18 +38,83 @@
   },
   "auth": {
     "welcomeBack": "Welcome back",
+    "welcomeSubtitle": "Sign in to your support desk.",
     "createAccount": "Create your account",
+    "createSubtitle": "Start resolving tickets in minutes.",
     "signIn": "Sign in",
     "signUp": "Sign up",
     "email": "Email",
+    "emailPlaceholder": "you@company.com",
     "password": "Password",
+    "passwordPlaceholder": "At least 8 characters",
     "name": "Name",
+    "namePlaceholder": "Your name",
     "signInCta": "Sign in",
     "signUpCta": "Create account",
-    "demoCta": "Explore the demo",
-    "orContinue": "or",
+    "demoCta": "Explore the live demo",
+    "demoHint": "No sign-up needed. Jump straight into a seeded support desk.",
+    "or": "or",
     "noAccount": "Don't have an account?",
-    "haveAccount": "Already have an account?"
+    "haveAccount": "Already have an account?",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "signingIn": "Signing in…",
+    "creatingAccount": "Creating account…",
+    "enteringDemo": "Entering demo…",
+    "genericError": "Something went wrong. Please try again."
+  },
+  "landing": {
+    "nav": {
+      "signIn": "Sign in",
+      "demo": "Live demo",
+      "submitTicket": "Submit a ticket"
+    },
+    "hero": {
+      "badge": "AI-powered support desk",
+      "title": "Resolve support tickets faster, with AI on your side",
+      "subtitle": "Resolvd triages every ticket the moment it lands — priority, category, sentiment, and a grounded reply draft — so your team spends time helping, not sorting.",
+      "primaryCta": "Explore the live demo",
+      "secondaryCta": "Sign in"
+    },
+    "stats": {
+      "triage": "Automatic triage",
+      "sla": "SLA tracking",
+      "languages": "3 languages"
+    },
+    "features": {
+      "title": "Everything your support team needs",
+      "subtitle": "One shared inbox, powered by AI and built for speed.",
+      "triageTitle": "AI auto-triage",
+      "triageBody": "Every incoming ticket gets a priority, category, tags, sentiment, and a one-line summary on arrival.",
+      "replyTitle": "Grounded reply drafts",
+      "replyBody": "Suggested replies are written from your knowledge base, so answers stay accurate and on-brand.",
+      "slaTitle": "SLA timers",
+      "slaBody": "First-response and resolution clocks per priority, with clear breach flags before deadlines slip.",
+      "inboxTitle": "Shared inbox",
+      "inboxBody": "Filter by status, priority, channel, or assignee, search across everything, and claim tickets in one click.",
+      "analyticsTitle": "Live analytics",
+      "analyticsBody": "Queue health, response times, volume trends, and team workload at a glance.",
+      "publicTitle": "Public submit form",
+      "publicBody": "Customers open tickets from your site and see instant AI triage confirm they were understood."
+    },
+    "how": {
+      "title": "How it works",
+      "step1Title": "A ticket arrives",
+      "step1Body": "From email, chat, web, or the public submit form.",
+      "step2Title": "AI triages it",
+      "step2Body": "Priority, category, sentiment, and SLA clocks are set automatically.",
+      "step3Title": "Your team resolves it",
+      "step3Body": "With a grounded reply draft and every detail in one place."
+    },
+    "cta": {
+      "title": "See it working in seconds",
+      "subtitle": "Jump into a fully seeded support desk. No sign-up required.",
+      "button": "Explore the live demo"
+    },
+    "footer": {
+      "tagline": "AI support desk",
+      "built": "A portfolio demo project."
+    }
   },
   "ticket": {
     "status": {

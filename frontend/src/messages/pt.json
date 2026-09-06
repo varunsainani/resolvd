@@ -38,18 +38,83 @@
   },
   "auth": {
     "welcomeBack": "Bem-vindo de volta",
+    "welcomeSubtitle": "Entre na sua central de suporte.",
     "createAccount": "Crie sua conta",
+    "createSubtitle": "Comece a resolver tickets em minutos.",
     "signIn": "Entrar",
     "signUp": "Cadastrar-se",
     "email": "E-mail",
+    "emailPlaceholder": "voce@empresa.com",
     "password": "Senha",
+    "passwordPlaceholder": "Pelo menos 8 caracteres",
     "name": "Nome",
+    "namePlaceholder": "Seu nome",
     "signInCta": "Entrar",
     "signUpCta": "Criar conta",
-    "demoCta": "Explorar a demo",
-    "orContinue": "ou",
+    "demoCta": "Explorar a demo ao vivo",
+    "demoHint": "Sem cadastro. Entre direto em uma central de suporte com dados de exemplo.",
+    "or": "ou",
     "noAccount": "Não tem uma conta?",
-    "haveAccount": "Já tem uma conta?"
+    "haveAccount": "Já tem uma conta?",
+    "showPassword": "Mostrar senha",
+    "hidePassword": "Ocultar senha",
+    "signingIn": "Entrando…",
+    "creatingAccount": "Criando conta…",
+    "enteringDemo": "Entrando na demo…",
+    "genericError": "Algo deu errado. Tente novamente."
+  },
+  "landing": {
+    "nav": {
+      "signIn": "Entrar",
+      "demo": "Demo ao vivo",
+      "submitTicket": "Enviar um ticket"
+    },
+    "hero": {
+      "badge": "Central de suporte com IA",
+      "title": "Resolva tickets de suporte mais rápido, com a IA ao seu lado",
+      "subtitle": "A Resolvd tria cada ticket assim que ele chega — prioridade, categoria, sentimento e um rascunho de resposta fundamentado — para sua equipe passar o tempo ajudando, não organizando.",
+      "primaryCta": "Explorar a demo ao vivo",
+      "secondaryCta": "Entrar"
+    },
+    "stats": {
+      "triage": "Triagem automática",
+      "sla": "Acompanhamento de SLA",
+      "languages": "3 idiomas"
+    },
+    "features": {
+      "title": "Tudo o que sua equipe de suporte precisa",
+      "subtitle": "Uma caixa de entrada compartilhada, com IA e feita para a velocidade.",
+      "triageTitle": "Triagem por IA",
+      "triageBody": "Cada ticket recebido ganha prioridade, categoria, tags, sentimento e um resumo de uma linha ao chegar.",
+      "replyTitle": "Rascunhos fundamentados",
+      "replyBody": "As respostas sugeridas são escritas a partir da sua base de conhecimento, então ficam precisas e alinhadas.",
+      "slaTitle": "Cronômetros de SLA",
+      "slaBody": "Relógios de primeira resposta e resolução por prioridade, com alertas claros antes dos prazos estourarem.",
+      "inboxTitle": "Caixa compartilhada",
+      "inboxBody": "Filtre por status, prioridade, canal ou responsável, busque em tudo e assuma tickets com um clique.",
+      "analyticsTitle": "Análises ao vivo",
+      "analyticsBody": "Saúde da fila, tempos de resposta, tendências de volume e carga da equipe num relance.",
+      "publicTitle": "Formulário público",
+      "publicBody": "Os clientes abrem tickets pelo seu site e veem a triagem instantânea da IA confirmar que foram entendidos."
+    },
+    "how": {
+      "title": "Como funciona",
+      "step1Title": "Um ticket chega",
+      "step1Body": "Por e-mail, chat, web ou o formulário público.",
+      "step2Title": "A IA faz a triagem",
+      "step2Body": "Prioridade, categoria, sentimento e relógios de SLA são definidos automaticamente.",
+      "step3Title": "Sua equipe resolve",
+      "step3Body": "Com um rascunho de resposta fundamentado e cada detalhe num só lugar."
+    },
+    "cta": {
+      "title": "Veja funcionando em segundos",
+      "subtitle": "Entre em uma central de suporte com dados de exemplo. Sem cadastro.",
+      "button": "Explorar a demo ao vivo"
+    },
+    "footer": {
+      "tagline": "Central de suporte com IA",
+      "built": "Um projeto de portfólio de demonstração."
+    }
   },
   "ticket": {
     "status": {
