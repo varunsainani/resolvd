@@ -17,5 +17,6 @@ export const config = {
   demoPassword: process.env.DEMO_PASSWORD || "demo1234",
   adminEmail: process.env.ADMIN_EMAIL || "admin@resolvd.app",
   dailySuggestLimit: Number(process.env.DAILY_SUGGEST_LIMIT || 80),
+  dailyPublicSubmitLimit: Number(process.env.DAILY_PUBLIC_SUBMIT_LIMIT || 20),
   port: Number(process.env.PORT || 8000),
 };
