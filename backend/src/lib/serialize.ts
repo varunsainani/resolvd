@@ -1,4 +1,4 @@
-import type { Customer, Message, Ticket, User } from "@prisma/client";
+import type { CannedResponse, Customer, KbArticle, Message, Ticket, User } from "@prisma/client";
 
 import { minutesRemaining, slaState } from "./sla";
 
@@ -28,6 +28,69 @@ export function serializeCustomer(c: Customer) {
     email: c.email,
     company: c.company,
     createdAt: c.createdAt.toISOString(),
+  };
+}
+
+// Customer with an aggregated ticket count for the directory list.
+export type CustomerWithCount = Customer & { _count?: { tickets: number } };
+
+export function serializeCustomerSummary(c: CustomerWithCount) {
+  return {
+    ...serializeCustomer(c),
+    ticketCount: c._count?.tickets ?? 0,
+  };
+}
+
+// Knowledge base article, full body included (used by list and detail alike;
+// bodies are short enough not to need a separate compact shape).
+export function serializeKbArticle(a: KbArticle) {
+  return {
+    id: a.id,
+    title: a.title,
+    body: a.body,
+    category: a.category,
+    keywords: a.keywords,
+    createdAt: a.createdAt.toISOString(),
+    updatedAt: a.updatedAt.toISOString(),
+  };
+}
+
+// Canned (macro) response an agent can drop into a reply.
+export function serializeCannedResponse(c: CannedResponse) {
+  return {
+    id: c.id,
+    title: c.title,
+    body: c.body,
+    category: c.category,
+    createdAt: c.createdAt.toISOString(),
+  };
+}
+
+// Trimmed, safe-to-show-a-customer view returned by the public submit form and
+// status lookup. Never exposes assignee, internal notes, or SLA internals.
+export function serializePublicTicket(t: Ticket) {
+  return {
+    reference: t.reference,
+    subject: t.subject,
+    status: t.status,
+    priority: t.priority,
+    category: t.category,
+    sentiment: t.sentiment,
+    summary: t.summary,
+    aiTriaged: t.aiTriaged,
+    createdAt: t.createdAt.toISOString(),
+  };
+}
+
+// Team member with assignment counts for the admin roster.
+export type AgentWithCounts = User & { openAssigned?: number; totalAssigned?: number };
+
+export function serializeAgentSummary(u: AgentWithCounts) {
+  return {
+    ...serializeUser(u),
+    createdAt: u.createdAt.toISOString(),
+    openAssigned: u.openAssigned ?? 0,
+    totalAssigned: u.totalAssigned ?? 0,
   };
 }
 
