@@ -13,6 +13,7 @@ import { ticketDetailInclude, ticketRowInclude } from "../lib/include";
 import { buildPageMeta, parsePageParams } from "../lib/pagination";
 import { computeSlaDueDates } from "../lib/sla";
 import { serializeTicketDetail, serializeTicketRow } from "../lib/serialize";
+import { buildTicketWhere } from "../lib/ticket-filter";
 import {
   oneOf,
   optionalString,
@@ -46,37 +47,7 @@ export function orderFor(sort: unknown): Prisma.TicketOrderByWithRelationInput[]
 // GET /api/tickets — filtered, paginated inbox list.
 ticketsRouter.get("/", async (req, res) => {
   const q = req.query as Record<string, unknown>;
-  const where: Prisma.TicketWhereInput = {};
-
-  if (typeof q.status === "string" && (TICKET_STATUSES as readonly string[]).includes(q.status)) {
-    where.status = q.status as Prisma.TicketWhereInput["status"];
-  }
-  if (typeof q.priority === "string" && (TICKET_PRIORITIES as readonly string[]).includes(q.priority)) {
-    where.priority = q.priority as Prisma.TicketWhereInput["priority"];
-  }
-  if (typeof q.channel === "string" && (CHANNELS as readonly string[]).includes(q.channel)) {
-    where.channel = q.channel as Prisma.TicketWhereInput["channel"];
-  }
-  if (q.assignee === "me") {
-    where.assigneeId = req.userId;
-  } else if (q.assignee === "unassigned") {
-    where.assigneeId = null;
-  } else if (typeof q.assignee === "string" && q.assignee) {
-    where.assigneeId = q.assignee;
-  }
-
-  const search = typeof q.q === "string" ? q.q.trim() : "";
-  if (search) {
-    const or: Prisma.TicketWhereInput[] = [
-      { subject: { contains: search, mode: "insensitive" } },
-      { customer: { name: { contains: search, mode: "insensitive" } } },
-      { customer: { email: { contains: search, mode: "insensitive" } } },
-    ];
-    const ref = Number(search.replace(/^#/, ""));
-    if (Number.isInteger(ref) && ref > 0) or.push({ reference: ref });
-    where.OR = or;
-  }
-
+  const where = buildTicketWhere(q, req.userId);
   const page = parsePageParams(q);
   const [total, rows] = await Promise.all([
     prisma.ticket.count({ where }),
