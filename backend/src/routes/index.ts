@@ -1,5 +1,6 @@
 import type { Express } from "express";
 
+import { adminRouter } from "./admin";
 import { agentsRouter } from "./agents";
 import { analyticsRouter } from "./analytics";
 import { authRouter } from "./auth";
@@ -7,6 +8,7 @@ import { cannedRouter } from "./canned";
 import { customersRouter } from "./customers";
 import { kbRouter } from "./kb";
 import { messagesRouter } from "./messages";
+import { publicRouter } from "./public";
 import { ticketsRouter } from "./tickets";
 
 // Mount every API router under /api. Called from createApp before the error
@@ -21,4 +23,7 @@ export function registerRoutes(app: Express): void {
   app.use("/api/canned", cannedRouter);
   app.use("/api/analytics", analyticsRouter);
   app.use("/api/agents", agentsRouter);
+  app.use("/api/admin", adminRouter);
+  // Unauthenticated customer-facing endpoints (submit form, status lookup).
+  app.use("/api/public", publicRouter);
 }
