@@ -24,7 +24,11 @@
     "required": "Obligatorio",
     "optional": "Opcional",
     "viewAll": "Ver todo",
-    "noResults": "Sin resultados"
+    "noResults": "Sin resultados",
+    "error": "Algo salió mal",
+    "saved": "Guardado",
+    "created": "Creado",
+    "deleted": "Eliminado"
   },
   "nav": {
     "dashboard": "Panel",
