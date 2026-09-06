@@ -11,7 +11,7 @@ import {
 import { optionalString, requireString } from "../lib/validate";
 import { requireUser } from "../middleware/auth";
 import { prisma } from "../prisma";
-import { customerSearchWhere } from "../services/customers";
+import { customerOrderBy, customerSearchWhere } from "../services/customers";
 
 export const customersRouter = Router();
 
@@ -30,7 +30,7 @@ customersRouter.get("/", async (req, res) => {
     prisma.customer.findMany({
       where,
       include: { _count: { select: { tickets: true } } },
-      orderBy: { createdAt: "desc" },
+      orderBy: customerOrderBy(q.sort),
       skip: page.skip,
       take: page.take,
     }),

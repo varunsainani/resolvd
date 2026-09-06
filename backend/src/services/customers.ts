@@ -14,3 +14,16 @@ export function customerSearchWhere(search: string): Prisma.CustomerWhereInput {
     ],
   };
 }
+
+// Map the `sort` query into a Prisma orderBy for the directory. `tickets` sorts
+// by how many tickets each customer has (busiest first); the default is newest.
+export function customerOrderBy(sort: unknown): Prisma.CustomerOrderByWithRelationInput {
+  switch (sort) {
+    case "name":
+      return { name: "asc" };
+    case "tickets":
+      return { tickets: { _count: "desc" } };
+    default:
+      return { createdAt: "desc" };
+  }
+}
