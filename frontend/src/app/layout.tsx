@@ -22,13 +22,22 @@ const jakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
+const description =
+  "AI support desk: a shared inbox with automatic triage, SLA timers, grounded reply suggestions, and analytics.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.APP_URL || "http://localhost:3000"),
   title: {
     default: "Resolvd",
     template: "%s · Resolvd",
   },
-  description:
-    "AI support desk: a shared inbox with automatic triage, SLA timers, grounded reply suggestions, and analytics.",
+  description,
+  openGraph: {
+    title: "Resolvd",
+    description,
+    siteName: "Resolvd",
+    type: "website",
+  },
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
