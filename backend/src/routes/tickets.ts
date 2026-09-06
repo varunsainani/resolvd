@@ -8,7 +8,7 @@ import {
   TicketPriorityValue,
   normalizeCategory,
 } from "../lib/constants";
-import { notFound } from "../lib/http";
+import { badRequest, notFound } from "../lib/http";
 import { ticketDetailInclude, ticketRowInclude } from "../lib/include";
 import { buildPageMeta, parsePageParams } from "../lib/pagination";
 import { computeSlaDueDates } from "../lib/sla";
@@ -22,7 +22,8 @@ import {
 } from "../lib/validate";
 import { requireUser } from "../middleware/auth";
 import { prisma } from "../prisma";
-import { createTicketFromIntake } from "../services/tickets";
+import { applyTags, createTicketFromIntake, removeTicketTag } from "../services/tickets";
+import { normalizeTagName } from "../lib/tags";
 
 export const ticketsRouter = Router();
 
@@ -171,6 +172,31 @@ ticketsRouter.post("/:id/assign", async (req, res) => {
     where: { id: existing.id },
     data: { assignee: id ? { connect: { id } } : { disconnect: true } },
   });
+  const ticket = await loadTicketDetail(existing.id);
+  res.json({ ticket: serializeTicketDetail(ticket, new Date()) });
+});
+
+// POST /api/tickets/:id/tags — manually add a tag (agents curate beyond the AI
+// suggestions). Idempotent: re-adding an existing tag is a no-op.
+ticketsRouter.post("/:id/tags", async (req, res) => {
+  const existing = await prisma.ticket.findUnique({ where: { id: req.params.id } });
+  if (!existing) throw notFound("ticket_not_found");
+
+  const name = normalizeTagName((req.body ?? {}).name);
+  if (!name) throw badRequest("invalid_input");
+  await applyTags(existing.id, [name]);
+
+  const ticket = await loadTicketDetail(existing.id);
+  res.status(201).json({ ticket: serializeTicketDetail(ticket, new Date()) });
+});
+
+// DELETE /api/tickets/:id/tags/:name — remove a tag from a ticket.
+ticketsRouter.delete("/:id/tags/:name", async (req, res) => {
+  const existing = await prisma.ticket.findUnique({ where: { id: req.params.id } });
+  if (!existing) throw notFound("ticket_not_found");
+
+  await removeTicketTag(existing.id, req.params.name);
+
   const ticket = await loadTicketDetail(existing.id);
   res.json({ ticket: serializeTicketDetail(ticket, new Date()) });
 });
