@@ -109,6 +109,31 @@ const MESSAGES: Record<string, Record<string, string>> = {
     es: "Correo o contraseña no válidos.",
     pt: "E-mail ou senha inválidos.",
   },
+  public_submit_limit: {
+    en: "Too many requests were submitted from here today. Please try again tomorrow.",
+    es: "Se enviaron demasiadas solicitudes desde aquí hoy. Intenta de nuevo mañana.",
+    pt: "Muitas solicitações foram enviadas daqui hoje. Tente novamente amanhã.",
+  },
+  agent_not_found: {
+    en: "That team member could not be found.",
+    es: "No se encontró a ese miembro del equipo.",
+    pt: "Esse membro da equipe não foi encontrado.",
+  },
+  invalid_role: {
+    en: "That is not a valid role.",
+    es: "Ese no es un rol válido.",
+    pt: "Essa não é uma função válida.",
+  },
+  cannot_remove_self: {
+    en: "You cannot remove your own account.",
+    es: "No puedes eliminar tu propia cuenta.",
+    pt: "Você não pode remover a sua própria conta.",
+  },
+  last_admin: {
+    en: "There must be at least one admin. Promote another member first.",
+    es: "Debe haber al menos un administrador. Promueve a otro miembro primero.",
+    pt: "É necessário ao menos um administrador. Promova outro membro primeiro.",
+  },
 };
 
 export function resolveLocale(req: Request): string {
