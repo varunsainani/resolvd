@@ -172,5 +172,57 @@
     "byCategory": "Por categoria",
     "bySentiment": "Por sentimento",
     "trend": "Tickets ao longo do tempo"
+  },
+  "inbox": {
+    "title": "Caixa de entrada",
+    "searchPlaceholder": "Busque por assunto, cliente ou #referência",
+    "newTicket": "Novo ticket",
+    "count": "{count, plural, =0 {Nenhum ticket} one {# ticket} other {# tickets}}",
+    "messages": "{count, plural, one {# mensagem} other {# mensagens}}",
+    "clearFilters": "Limpar filtros",
+    "filters": {
+      "status": "Status",
+      "priority": "Prioridade",
+      "channel": "Canal",
+      "assignee": "Responsável",
+      "sort": "Ordem"
+    },
+    "assignedToMe": "Atribuídos a mim",
+    "unassigned": "Não atribuídos",
+    "sortOptions": {
+      "newest": "Mais recentes",
+      "oldest": "Mais antigos",
+      "updated": "Atualizados recentemente",
+      "priority": "Prioridade"
+    },
+    "error": "Não foi possível carregar a caixa de entrada.",
+    "emptyFiltered": {
+      "title": "Nenhum ticket corresponde aos seus filtros",
+      "body": "Tente remover um filtro ou buscar outra coisa."
+    },
+    "empty": {
+      "title": "Sua caixa de entrada está em dia",
+      "body": "Novos tickets aparecerão aqui assim que chegarem."
+    },
+    "new": {
+      "title": "Novo ticket",
+      "subtitle": "A mensagem inicial é triada automaticamente.",
+      "subject": "Assunto",
+      "subjectPlaceholder": "Resumo breve do problema",
+      "message": "Mensagem",
+      "messagePlaceholder": "O que o cliente está perguntando?",
+      "customerName": "Nome do cliente",
+      "customerNamePlaceholder": "Jordan Lee",
+      "customerEmail": "E-mail do cliente",
+      "customerEmailPlaceholder": "jordan@empresa.com",
+      "company": "Empresa",
+      "companyPlaceholder": "Opcional",
+      "channel": "Canal",
+      "priority": "Prioridade",
+      "priorityAuto": "Automática (deixe a IA decidir)",
+      "submit": "Criar ticket",
+      "submitting": "Criando…",
+      "created": "Ticket criado"
+    }
   }
 }
