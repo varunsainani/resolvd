@@ -70,7 +70,12 @@ function InboxView() {
           </>
         ) : (
           <>
-            <InboxSummary total={meta?.total ?? tickets.length} active={active} onClear={clear} />
+            <InboxSummary
+              total={meta?.total ?? tickets.length}
+              active={active}
+              loading={loading}
+              onClear={clear}
+            />
             <TicketList tickets={tickets} />
             {meta && (
               <div className="flex justify-center pt-2">
