@@ -1,16 +1,18 @@
 "use client";
 
-import { BarChart3 } from "lucide-react";
+import { BarChart3, Plus } from "lucide-react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 
 import { KpiGrid, TrendCard } from "@/components/analytics";
 import { useAuth } from "@/components/auth/auth-provider";
+import { NewTicketModal } from "@/components/inbox";
 import { PageHeader } from "@/components/shell/page-header";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ErrorState } from "@/components/ui/error-state";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useApi } from "@/hooks";
+import { useApi, useDisclosure } from "@/hooks";
 import { analyticsApi } from "@/lib/api";
 import { TicketMiniList } from "./ticket-mini-list";
 
@@ -19,9 +21,11 @@ import { TicketMiniList } from "./ticket-mini-list";
 export function DashboardView() {
   const t = useTranslations("dashboard");
   const tCommon = useTranslations("common");
+  const tInbox = useTranslations("inbox");
   const { user } = useAuth();
   const firstName = user?.name.split(" ")[0];
   const { data, loading, error, refetch } = useApi(() => analyticsApi.overview(), []);
+  const newTicket = useDisclosure();
 
   return (
     <>
@@ -29,13 +33,19 @@ export function DashboardView() {
         title={firstName ? t("welcome", { name: firstName }) : t("welcomeGeneric")}
         description={t("subtitle")}
         action={
-          <Link
-            href="/analytics"
-            className="inline-flex h-9 items-center gap-2 rounded-md border border-border px-4 text-sm font-medium text-foreground transition-colors hover:bg-muted"
-          >
-            <BarChart3 className="h-4 w-4" />
-            {t("viewAnalytics")}
-          </Link>
+          <div className="flex flex-wrap items-center gap-2">
+            <Link
+              href="/analytics"
+              className="inline-flex h-9 items-center gap-2 rounded-md border border-border px-4 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+            >
+              <BarChart3 className="h-4 w-4" />
+              {t("viewAnalytics")}
+            </Link>
+            <Button onClick={newTicket.onOpen}>
+              <Plus className="h-4 w-4" />
+              {tInbox("newTicket")}
+            </Button>
+          </div>
         }
       />
 
@@ -77,6 +87,8 @@ export function DashboardView() {
           />
         </div>
       </div>
+
+      <NewTicketModal open={newTicket.open} onClose={newTicket.onClose} />
     </>
   );
 }
