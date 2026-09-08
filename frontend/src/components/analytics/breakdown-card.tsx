@@ -1,16 +1,20 @@
 import { BarList, ChartEmpty, type BarItem } from "@/components/charts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { totalCount } from "@/lib/chart";
 
-// A titled card wrapping a horizontal bar breakdown, falling back to the empty
-// placeholder when every value is zero.
+// A titled card wrapping a horizontal bar breakdown, with the running total in
+// the header. Falls back to the empty placeholder when there is no data.
 export function BreakdownCard({ title, items }: { title: string; items: BarItem[] }) {
-  const anyData = items.some((item) => item.value > 0);
+  const total = totalCount(items.map((item) => ({ count: item.value })));
   return (
     <Card>
       <CardHeader className="pb-3">
-        <CardTitle className="text-sm">{title}</CardTitle>
+        <CardTitle className="flex items-center justify-between text-sm">
+          <span>{title}</span>
+          <span className="text-xs font-normal tabular-nums text-muted-foreground">{total}</span>
+        </CardTitle>
       </CardHeader>
-      <CardContent>{anyData ? <BarList items={items} /> : <ChartEmpty />}</CardContent>
+      <CardContent>{total > 0 ? <BarList items={items} /> : <ChartEmpty />}</CardContent>
     </Card>
   );
 }
