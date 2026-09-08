@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 
 import {
+  AnalyticsEmpty,
   BreakdownGrid,
   KpiGrid,
   ResponseTimesCard,
@@ -55,6 +56,8 @@ export default function AnalyticsPage() {
         <ErrorState message={error} onRetry={refetch} retryLabel={tCommon("retry")} />
       ) : loading || !data ? (
         <AnalyticsSkeleton />
+      ) : data.totals.total === 0 ? (
+        <AnalyticsEmpty />
       ) : (
         <div className="space-y-6">
           <KpiGrid data={data} />
