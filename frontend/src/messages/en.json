@@ -224,5 +224,77 @@
       "submitting": "Creating…",
       "created": "Ticket created"
     }
+  },
+  "ticketDetail": {
+    "back": "Back to inbox",
+    "error": "We couldn't load this ticket.",
+    "notFound": {
+      "title": "Ticket not found",
+      "body": "This ticket may have been removed, or the link is wrong.",
+      "cta": "Back to inbox"
+    },
+    "openedRelative": "Opened {time}",
+    "updatedRelative": "Updated {time}",
+    "aiTriaged": "AI triaged",
+    "thread": {
+      "title": "Conversation",
+      "internal": "Internal note",
+      "you": "You",
+      "system": "System"
+    },
+    "compose": {
+      "reply": "Reply",
+      "placeholder": "Write your reply…",
+      "internalToggle": "Internal note",
+      "internalHint": "Visible to your team only, not the customer.",
+      "send": "Send reply",
+      "sendNote": "Add note",
+      "sending": "Sending…",
+      "statusAfter": "Set status to",
+      "statusKeep": "Keep current status",
+      "empty": "Write a message before sending.",
+      "sent": "Reply sent",
+      "noteAdded": "Note added"
+    },
+    "suggest": {
+      "button": "AI suggest",
+      "loading": "Drafting…",
+      "confidence": "Confidence",
+      "sources": "Based on",
+      "noSources": "general support knowledge",
+      "applied": "Draft inserted into the composer",
+      "error": "Couldn't draft a reply right now."
+    },
+    "properties": {
+      "title": "Properties",
+      "status": "Status",
+      "priority": "Priority",
+      "category": "Category",
+      "categoryPlaceholder": "e.g. billing",
+      "assignee": "Assignee",
+      "assignToMe": "Assign to me",
+      "unassigned": "Unassigned",
+      "saved": "Ticket updated"
+    },
+    "customer": {
+      "title": "Customer",
+      "noCompany": "No company",
+      "since": "Customer since {date}"
+    },
+    "sla": {
+      "title": "SLA"
+    },
+    "summary": {
+      "title": "AI summary",
+      "empty": "No summary yet."
+    },
+    "tags": {
+      "title": "Tags",
+      "add": "Add tag",
+      "placeholder": "Add a tag and press Enter",
+      "empty": "No tags yet.",
+      "added": "Tag added",
+      "removed": "Tag removed"
+    }
   }
 }
