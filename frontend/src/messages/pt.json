@@ -171,7 +171,17 @@
     "byChannel": "Por canal",
     "byCategory": "Por categoria",
     "bySentiment": "Por sentimento",
-    "trend": "Tickets ao longo do tempo"
+    "trend": "Tickets ao longo do tempo",
+    "subtitle": "Como sua fila de suporte está performando.",
+    "empty": "Ainda não há dados suficientes para o gráfico.",
+    "slaHealth": "Saúde do SLA",
+    "firstResponseBreaches": "Violações de primeira resposta",
+    "resolutionBreaches": "Violações de resolução",
+    "breachRate": "Taxa de violação",
+    "responseTimes": "Tempos de resposta",
+    "trendSubtitle": "Novos tickets, últimos 14 dias",
+    "notAvailable": "—",
+    "trendPoint": "{count} em {date}"
   },
   "inbox": {
     "title": "Caixa de entrada",
@@ -296,5 +306,16 @@
       "added": "Tag adicionada",
       "removed": "Tag removida"
     }
+  },
+  "dashboard": {
+    "welcome": "Bem-vindo de volta, {name}",
+    "welcomeGeneric": "Bem-vindo de volta",
+    "subtitle": "Sua central de suporte num relance.",
+    "recent": "Tickets recentes",
+    "myQueue": "Atribuídos a você",
+    "viewInbox": "Ir para a caixa de entrada",
+    "viewAnalytics": "Ver análises",
+    "emptyRecent": "Ainda não há tickets.",
+    "emptyMine": "Nada atribuído a você no momento."
   }
 }
