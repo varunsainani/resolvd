@@ -172,5 +172,57 @@
     "byCategory": "Por categoría",
     "bySentiment": "Por sentimiento",
     "trend": "Tickets en el tiempo"
+  },
+  "inbox": {
+    "title": "Bandeja",
+    "searchPlaceholder": "Busca por asunto, cliente o #referencia",
+    "newTicket": "Nuevo ticket",
+    "count": "{count, plural, =0 {Sin tickets} one {# ticket} other {# tickets}}",
+    "messages": "{count, plural, one {# mensaje} other {# mensajes}}",
+    "clearFilters": "Limpiar filtros",
+    "filters": {
+      "status": "Estado",
+      "priority": "Prioridad",
+      "channel": "Canal",
+      "assignee": "Agente",
+      "sort": "Orden"
+    },
+    "assignedToMe": "Asignados a mí",
+    "unassigned": "Sin asignar",
+    "sortOptions": {
+      "newest": "Más recientes",
+      "oldest": "Más antiguos",
+      "updated": "Actualizados hace poco",
+      "priority": "Prioridad"
+    },
+    "error": "No pudimos cargar la bandeja.",
+    "emptyFiltered": {
+      "title": "Ningún ticket coincide con tus filtros",
+      "body": "Prueba a quitar un filtro o buscar otra cosa."
+    },
+    "empty": {
+      "title": "Tu bandeja está al día",
+      "body": "Los nuevos tickets aparecerán aquí en cuanto lleguen."
+    },
+    "new": {
+      "title": "Nuevo ticket",
+      "subtitle": "El mensaje inicial se clasifica automáticamente.",
+      "subject": "Asunto",
+      "subjectPlaceholder": "Resumen breve del problema",
+      "message": "Mensaje",
+      "messagePlaceholder": "¿Qué está preguntando el cliente?",
+      "customerName": "Nombre del cliente",
+      "customerNamePlaceholder": "Jordan Lee",
+      "customerEmail": "Correo del cliente",
+      "customerEmailPlaceholder": "jordan@empresa.com",
+      "company": "Empresa",
+      "companyPlaceholder": "Opcional",
+      "channel": "Canal",
+      "priority": "Prioridad",
+      "priorityAuto": "Automática (deja que decida la IA)",
+      "submit": "Crear ticket",
+      "submitting": "Creando…",
+      "created": "Ticket creado"
+    }
   }
 }
