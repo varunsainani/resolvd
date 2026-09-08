@@ -18,6 +18,8 @@ describe("BreakdownCard", () => {
     expect(screen.getByText("By status")).toBeInTheDocument();
     expect(screen.getByText("Open")).toBeInTheDocument();
     expect(screen.getByText("Resolved")).toBeInTheDocument();
+    // The running total (4 + 6) appears in the card header.
+    expect(screen.getByText("10")).toBeInTheDocument();
   });
 
   it("falls back to the empty placeholder when all values are zero", () => {
