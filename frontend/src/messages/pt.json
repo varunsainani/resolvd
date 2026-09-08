@@ -224,5 +224,77 @@
       "submitting": "Criando…",
       "created": "Ticket criado"
     }
+  },
+  "ticketDetail": {
+    "back": "Voltar à caixa de entrada",
+    "error": "Não foi possível carregar este ticket.",
+    "notFound": {
+      "title": "Ticket não encontrado",
+      "body": "Este ticket pode ter sido removido, ou o link está incorreto.",
+      "cta": "Voltar à caixa de entrada"
+    },
+    "openedRelative": "Aberto {time}",
+    "updatedRelative": "Atualizado {time}",
+    "aiTriaged": "Triado por IA",
+    "thread": {
+      "title": "Conversa",
+      "internal": "Nota interna",
+      "you": "Você",
+      "system": "Sistema"
+    },
+    "compose": {
+      "reply": "Responder",
+      "placeholder": "Escreva sua resposta…",
+      "internalToggle": "Nota interna",
+      "internalHint": "Visível somente para sua equipe, não para o cliente.",
+      "send": "Enviar resposta",
+      "sendNote": "Adicionar nota",
+      "sending": "Enviando…",
+      "statusAfter": "Mudar status para",
+      "statusKeep": "Manter o status atual",
+      "empty": "Escreva uma mensagem antes de enviar.",
+      "sent": "Resposta enviada",
+      "noteAdded": "Nota adicionada"
+    },
+    "suggest": {
+      "button": "Sugerir com IA",
+      "loading": "Redigindo…",
+      "confidence": "Confiança",
+      "sources": "Com base em",
+      "noSources": "conhecimento geral de suporte",
+      "applied": "Rascunho inserido no editor",
+      "error": "Não foi possível redigir uma resposta agora."
+    },
+    "properties": {
+      "title": "Propriedades",
+      "status": "Status",
+      "priority": "Prioridade",
+      "category": "Categoria",
+      "categoryPlaceholder": "ex.: faturamento",
+      "assignee": "Responsável",
+      "assignToMe": "Atribuir a mim",
+      "unassigned": "Não atribuído",
+      "saved": "Ticket atualizado"
+    },
+    "customer": {
+      "title": "Cliente",
+      "noCompany": "Sem empresa",
+      "since": "Cliente desde {date}"
+    },
+    "sla": {
+      "title": "SLA"
+    },
+    "summary": {
+      "title": "Resumo de IA",
+      "empty": "Ainda não há resumo."
+    },
+    "tags": {
+      "title": "Tags",
+      "add": "Adicionar tag",
+      "placeholder": "Digite uma tag e pressione Enter",
+      "empty": "Ainda não há tags.",
+      "added": "Tag adicionada",
+      "removed": "Tag removida"
+    }
   }
 }
