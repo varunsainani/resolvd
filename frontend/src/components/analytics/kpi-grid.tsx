@@ -20,7 +20,12 @@ export function KpiGrid({ data }: { data: AnalyticsOverview }) {
       <StatCard label={t("open")} value={n(totals.open)} icon={Inbox} />
       <StatCard label={t("unassigned")} value={n(totals.unassigned)} icon={UserX} />
       <StatCard label={t("resolved")} value={n(totals.resolved)} icon={CheckCircle2} />
-      <StatCard label={t("resolutionRate")} value={`${totals.resolutionRate}%`} icon={Percent} />
+      <StatCard
+        label={t("resolutionRate")}
+        value={`${totals.resolutionRate}%`}
+        icon={Percent}
+        hint={`${n(totals.resolved)}/${n(totals.total)}`}
+      />
       <StatCard label={t("aiTriaged")} value={`${totals.aiTriagedPercent}%`} icon={Sparkles} />
     </div>
   );
