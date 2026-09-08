@@ -53,6 +53,18 @@ export function formatNumber(value: number, locale = "en"): string {
   return new Intl.NumberFormat(locale).format(value);
 }
 
+// A compact day label for chart axes, e.g. "2026-09-06" -> "Sep 6". Parsed and
+// formatted in UTC so the day never shifts across timezones (the backend emits
+// UTC calendar-day keys).
+export function formatDayLabel(dayKey: string, locale = "en"): string {
+  const d = new Date(`${dayKey}T00:00:00Z`);
+  return new Intl.DateTimeFormat(locale, {
+    month: "short",
+    day: "numeric",
+    timeZone: "UTC",
+  }).format(d);
+}
+
 // Initials for an avatar fallback, e.g. "Dana Ruiz" -> "DR".
 export function initials(name: string): string {
   return name
