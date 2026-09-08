@@ -224,5 +224,77 @@
       "submitting": "Creando…",
       "created": "Ticket creado"
     }
+  },
+  "ticketDetail": {
+    "back": "Volver a la bandeja",
+    "error": "No pudimos cargar este ticket.",
+    "notFound": {
+      "title": "Ticket no encontrado",
+      "body": "Es posible que este ticket se haya eliminado o que el enlace sea incorrecto.",
+      "cta": "Volver a la bandeja"
+    },
+    "openedRelative": "Abierto {time}",
+    "updatedRelative": "Actualizado {time}",
+    "aiTriaged": "Clasificado por IA",
+    "thread": {
+      "title": "Conversación",
+      "internal": "Nota interna",
+      "you": "Tú",
+      "system": "Sistema"
+    },
+    "compose": {
+      "reply": "Responder",
+      "placeholder": "Escribe tu respuesta…",
+      "internalToggle": "Nota interna",
+      "internalHint": "Solo la ve tu equipo, no el cliente.",
+      "send": "Enviar respuesta",
+      "sendNote": "Agregar nota",
+      "sending": "Enviando…",
+      "statusAfter": "Cambiar estado a",
+      "statusKeep": "Mantener el estado actual",
+      "empty": "Escribe un mensaje antes de enviar.",
+      "sent": "Respuesta enviada",
+      "noteAdded": "Nota agregada"
+    },
+    "suggest": {
+      "button": "Sugerir con IA",
+      "loading": "Redactando…",
+      "confidence": "Confianza",
+      "sources": "Basado en",
+      "noSources": "conocimiento general de soporte",
+      "applied": "Borrador insertado en el editor",
+      "error": "No se pudo redactar una respuesta ahora mismo."
+    },
+    "properties": {
+      "title": "Propiedades",
+      "status": "Estado",
+      "priority": "Prioridad",
+      "category": "Categoría",
+      "categoryPlaceholder": "p. ej. facturación",
+      "assignee": "Agente",
+      "assignToMe": "Asignármelo",
+      "unassigned": "Sin asignar",
+      "saved": "Ticket actualizado"
+    },
+    "customer": {
+      "title": "Cliente",
+      "noCompany": "Sin empresa",
+      "since": "Cliente desde {date}"
+    },
+    "sla": {
+      "title": "SLA"
+    },
+    "summary": {
+      "title": "Resumen de IA",
+      "empty": "Aún no hay resumen."
+    },
+    "tags": {
+      "title": "Etiquetas",
+      "add": "Agregar etiqueta",
+      "placeholder": "Escribe una etiqueta y pulsa Enter",
+      "empty": "Aún no hay etiquetas.",
+      "added": "Etiqueta agregada",
+      "removed": "Etiqueta eliminada"
+    }
   }
 }
