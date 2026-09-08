@@ -172,5 +172,57 @@
     "byCategory": "By category",
     "bySentiment": "By sentiment",
     "trend": "Tickets over time"
+  },
+  "inbox": {
+    "title": "Inbox",
+    "searchPlaceholder": "Search subject, customer, or #reference",
+    "newTicket": "New ticket",
+    "count": "{count, plural, =0 {No tickets} one {# ticket} other {# tickets}}",
+    "messages": "{count, plural, one {# message} other {# messages}}",
+    "clearFilters": "Clear filters",
+    "filters": {
+      "status": "Status",
+      "priority": "Priority",
+      "channel": "Channel",
+      "assignee": "Assignee",
+      "sort": "Sort"
+    },
+    "assignedToMe": "Assigned to me",
+    "unassigned": "Unassigned",
+    "sortOptions": {
+      "newest": "Newest first",
+      "oldest": "Oldest first",
+      "updated": "Recently updated",
+      "priority": "Priority"
+    },
+    "error": "We couldn't load the inbox.",
+    "emptyFiltered": {
+      "title": "No tickets match your filters",
+      "body": "Try clearing a filter or searching for something else."
+    },
+    "empty": {
+      "title": "Your inbox is clear",
+      "body": "New tickets will appear here as they arrive."
+    },
+    "new": {
+      "title": "New ticket",
+      "subtitle": "The opening message is triaged automatically.",
+      "subject": "Subject",
+      "subjectPlaceholder": "Short summary of the issue",
+      "message": "Message",
+      "messagePlaceholder": "What is the customer asking?",
+      "customerName": "Customer name",
+      "customerNamePlaceholder": "Jordan Lee",
+      "customerEmail": "Customer email",
+      "customerEmailPlaceholder": "jordan@company.com",
+      "company": "Company",
+      "companyPlaceholder": "Optional",
+      "channel": "Channel",
+      "priority": "Priority",
+      "priorityAuto": "Auto (let AI decide)",
+      "submit": "Create ticket",
+      "submitting": "Creating…",
+      "created": "Ticket created"
+    }
   }
 }
