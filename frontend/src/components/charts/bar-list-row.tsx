@@ -8,11 +8,14 @@ export function BarListRow({
   value,
   max,
   colorClass,
+  share,
 }: {
   label: string;
   value: number;
   max: number;
   colorClass?: string;
+  // Optional share of the total, shown as a dim percentage after the count.
+  share?: number;
 }) {
   return (
     <div className="flex items-center gap-3">
@@ -28,6 +31,11 @@ export function BarListRow({
       <span className="w-8 shrink-0 text-right text-sm font-medium tabular-nums text-foreground">
         {value}
       </span>
+      {share !== undefined && (
+        <span className="w-10 shrink-0 text-right text-xs tabular-nums text-muted-foreground">
+          {share}%
+        </span>
+      )}
     </div>
   );
 }
