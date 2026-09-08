@@ -171,7 +171,17 @@
     "byChannel": "Por canal",
     "byCategory": "Por categoría",
     "bySentiment": "Por sentimiento",
-    "trend": "Tickets en el tiempo"
+    "trend": "Tickets en el tiempo",
+    "subtitle": "Cómo está rindiendo tu cola de soporte.",
+    "empty": "Aún no hay datos suficientes para el gráfico.",
+    "slaHealth": "Estado del SLA",
+    "firstResponseBreaches": "Incumplimientos de primera respuesta",
+    "resolutionBreaches": "Incumplimientos de resolución",
+    "breachRate": "Tasa de incumplimiento",
+    "responseTimes": "Tiempos de respuesta",
+    "trendSubtitle": "Tickets nuevos, últimos 14 días",
+    "notAvailable": "—",
+    "trendPoint": "{count} el {date}"
   },
   "inbox": {
     "title": "Bandeja",
@@ -296,5 +306,16 @@
       "added": "Etiqueta agregada",
       "removed": "Etiqueta eliminada"
     }
+  },
+  "dashboard": {
+    "welcome": "Bienvenido de nuevo, {name}",
+    "welcomeGeneric": "Bienvenido de nuevo",
+    "subtitle": "Tu centro de soporte de un vistazo.",
+    "recent": "Tickets recientes",
+    "myQueue": "Asignados a ti",
+    "viewInbox": "Ir a la bandeja",
+    "viewAnalytics": "Ver analíticas",
+    "emptyRecent": "Aún no hay tickets.",
+    "emptyMine": "No tienes nada asignado por ahora."
   }
 }
