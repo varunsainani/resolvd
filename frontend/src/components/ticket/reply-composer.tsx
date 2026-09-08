@@ -69,6 +69,13 @@ export function ReplyComposer() {
       <Textarea
         value={body}
         onChange={(e) => setBody(e.target.value)}
+        onKeyDown={(e) => {
+          // Ctrl/Cmd+Enter sends, the way support tools do.
+          if ((e.metaKey || e.ctrlKey) && e.key === "Enter") {
+            e.preventDefault();
+            void onSend();
+          }
+        }}
         placeholder={t("placeholder")}
         rows={5}
         aria-label={t("reply")}
@@ -102,7 +109,7 @@ export function ReplyComposer() {
 
         <div className="flex items-center gap-2">
           <SuggestButton onSuggestion={onSuggestion} disabled={sending} />
-          <Button onClick={onSend} loading={sending}>
+          <Button onClick={onSend} loading={sending} disabled={!body.trim()}>
             {sending ? t("sending") : internal ? t("sendNote") : t("send")}
           </Button>
         </div>
