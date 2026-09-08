@@ -171,7 +171,17 @@
     "byChannel": "By channel",
     "byCategory": "By category",
     "bySentiment": "By sentiment",
-    "trend": "Tickets over time"
+    "trend": "Tickets over time",
+    "subtitle": "How your support queue is performing.",
+    "empty": "Not enough data to chart yet.",
+    "slaHealth": "SLA health",
+    "firstResponseBreaches": "First-response breaches",
+    "resolutionBreaches": "Resolution breaches",
+    "breachRate": "Breach rate",
+    "responseTimes": "Response times",
+    "trendSubtitle": "New tickets, last 14 days",
+    "notAvailable": "—",
+    "trendPoint": "{count} on {date}"
   },
   "inbox": {
     "title": "Inbox",
@@ -296,5 +306,16 @@
       "added": "Tag added",
       "removed": "Tag removed"
     }
+  },
+  "dashboard": {
+    "welcome": "Welcome back, {name}",
+    "welcomeGeneric": "Welcome back",
+    "subtitle": "Here's your support desk at a glance.",
+    "recent": "Recent tickets",
+    "myQueue": "Assigned to you",
+    "viewInbox": "Go to inbox",
+    "viewAnalytics": "View analytics",
+    "emptyRecent": "No tickets yet.",
+    "emptyMine": "Nothing is assigned to you right now."
   }
 }
