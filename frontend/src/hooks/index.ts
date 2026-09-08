@@ -3,3 +3,4 @@ export { useApi, type ApiState } from "./use-api";
 export { useMutation, type MutationState } from "./use-mutation";
 export { useDebounce } from "./use-debounce";
 export { useDisclosure } from "./use-disclosure";
+export { useInboxFilters, type InboxFiltersController } from "./use-inbox-filters";
