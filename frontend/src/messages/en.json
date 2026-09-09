@@ -513,5 +513,46 @@
       "submitting": "Adding…",
       "created": "Agent added"
     }
+  },
+  "submit": {
+    "title": "Submit a ticket",
+    "subtitle": "Tell us what's going on and our team will get back to you.",
+    "signIn": "Agent sign in",
+    "tabSubmit": "New ticket",
+    "tabTrack": "Track a ticket",
+    "form": {
+      "name": "Your name",
+      "namePlaceholder": "Jordan Lee",
+      "email": "Email",
+      "emailPlaceholder": "you@company.com",
+      "company": "Company",
+      "companyPlaceholder": "Optional",
+      "subject": "Subject",
+      "subjectPlaceholder": "A short summary",
+      "message": "How can we help?",
+      "messagePlaceholder": "Describe the issue in detail…",
+      "submit": "Submit ticket",
+      "submitting": "Submitting…"
+    },
+    "success": {
+      "title": "Ticket received",
+      "subtitle": "We've logged your request and our AI has already triaged it.",
+      "reference": "Your reference",
+      "summary": "Summary",
+      "another": "Submit another ticket",
+      "trackHint": "Keep your reference number to check the status later."
+    },
+    "track": {
+      "title": "Track a ticket",
+      "subtitle": "Enter your reference number and email to see the status.",
+      "reference": "Reference number",
+      "referencePlaceholder": "e.g. 1042",
+      "email": "Email",
+      "emailPlaceholder": "you@company.com",
+      "lookup": "Check status",
+      "looking": "Checking…",
+      "notFound": "We couldn't find a ticket with that reference and email.",
+      "openedOn": "Opened {date}"
+    }
   }
 }
