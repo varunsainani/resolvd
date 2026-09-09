@@ -384,5 +384,52 @@
       "saving": "Salvando…",
       "saved": "Cliente atualizado"
     }
+  },
+  "kb": {
+    "title": "Base de conhecimento",
+    "subtitle": "Artigos que fundamentam as respostas sugeridas pela IA.",
+    "new": "Novo artigo",
+    "searchPlaceholder": "Buscar artigos",
+    "sort": "Ordem",
+    "sortUpdated": "Atualizados recentemente",
+    "sortTitle": "Título",
+    "sortOldest": "Mais antigos",
+    "count": "{count, plural, =0 {Nenhum artigo} one {# artigo} other {# artigos}}",
+    "updated": "Atualizado {date}",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "empty": {
+      "title": "Ainda não há artigos",
+      "body": "Adicione seu primeiro artigo para fundamentar as respostas de IA."
+    },
+    "emptyFiltered": {
+      "title": "Nenhum artigo corresponde à sua busca",
+      "body": "Tente outro termo."
+    },
+    "error": "Não foi possível carregar a base de conhecimento.",
+    "form": {
+      "newTitle": "Novo artigo",
+      "editTitle": "Editar artigo",
+      "title": "Título",
+      "titlePlaceholder": "Como redefinir sua senha",
+      "category": "Categoria",
+      "categoryPlaceholder": "ex.: conta",
+      "keywords": "Palavras-chave",
+      "keywordsPlaceholder": "Termos separados por vírgula",
+      "keywordsHint": "Usadas para relacionar este artigo aos tickets recebidos.",
+      "body": "Conteúdo",
+      "bodyPlaceholder": "Escreva o artigo…",
+      "create": "Criar artigo",
+      "save": "Salvar alterações",
+      "saving": "Salvando…",
+      "created": "Artigo criado",
+      "saved": "Artigo atualizado"
+    },
+    "deleteConfirm": {
+      "title": "Excluir artigo",
+      "message": "Este artigo deixará de fundamentar as respostas de IA. Não pode ser desfeito.",
+      "confirm": "Excluir",
+      "deleted": "Artigo excluído"
+    }
   }
 }
