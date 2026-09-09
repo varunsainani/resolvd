@@ -339,5 +339,50 @@
     "save": "Save changes",
     "saving": "Saving…",
     "saved": "Settings saved"
+  },
+  "customers": {
+    "title": "Customers",
+    "subtitle": "Everyone who has contacted support.",
+    "searchPlaceholder": "Search name, email, or company",
+    "sort": "Sort",
+    "sortRecent": "Newest",
+    "sortName": "Name",
+    "sortTickets": "Most tickets",
+    "name": "Name",
+    "email": "Email",
+    "company": "Company",
+    "tickets": "Tickets",
+    "noCompany": "—",
+    "count": "{count, plural, =0 {No customers} one {# customer} other {# customers}}",
+    "empty": {
+      "title": "No customers yet",
+      "body": "Customers appear here once they open a ticket."
+    },
+    "emptyFiltered": {
+      "title": "No customers match your search",
+      "body": "Try a different name, email, or company."
+    },
+    "error": "We couldn't load customers.",
+    "detail": {
+      "back": "Back to customers",
+      "since": "Customer since {date}",
+      "ticketsHeading": "Tickets",
+      "noTickets": "No tickets from this customer.",
+      "edit": "Edit",
+      "notFound": {
+        "title": "Customer not found",
+        "body": "This customer may have been removed.",
+        "cta": "Back to customers"
+      }
+    },
+    "editModal": {
+      "title": "Edit customer",
+      "name": "Name",
+      "company": "Company",
+      "companyPlaceholder": "Optional",
+      "save": "Save",
+      "saving": "Saving…",
+      "saved": "Customer updated"
+    }
   }
 }
