@@ -475,5 +475,43 @@
       "confirm": "Eliminar",
       "deleted": "Respuesta eliminada"
     }
+  },
+  "team": {
+    "title": "Equipo",
+    "subtitle": "Administra los agentes que pueden acceder a este centro.",
+    "add": "Agregar agente",
+    "name": "Nombre",
+    "email": "Correo",
+    "role": "Rol",
+    "assigned": "Asignados",
+    "open": "Abiertos",
+    "you": "Tú",
+    "count": "{count, plural, =0 {Sin agentes} one {# agente} other {# agentes}}",
+    "error": "No pudimos cargar el equipo.",
+    "roleChanged": "Rol actualizado",
+    "remove": "Eliminar",
+    "forbidden": {
+      "title": "Solo administradores",
+      "body": "Necesitas una cuenta de administrador para gestionar el equipo."
+    },
+    "removeConfirm": {
+      "title": "Eliminar agente",
+      "message": "{name} perderá el acceso. Sus tickets asignados seguirán con esa persona.",
+      "confirm": "Eliminar",
+      "removed": "Agente eliminado"
+    },
+    "addModal": {
+      "title": "Agregar agente",
+      "name": "Nombre",
+      "namePlaceholder": "Jordan Lee",
+      "email": "Correo",
+      "emailPlaceholder": "jordan@empresa.com",
+      "password": "Contraseña temporal",
+      "passwordPlaceholder": "Al menos 8 caracteres",
+      "role": "Rol",
+      "submit": "Agregar agente",
+      "submitting": "Agregando…",
+      "created": "Agente agregado"
+    }
   }
 }
