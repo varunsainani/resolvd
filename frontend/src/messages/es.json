@@ -431,5 +431,49 @@
       "confirm": "Eliminar",
       "deleted": "Artículo eliminado"
     }
+  },
+  "canned": {
+    "title": "Respuestas predefinidas",
+    "subtitle": "Macros de respuesta reutilizables para tu equipo.",
+    "new": "Nueva respuesta",
+    "searchPlaceholder": "Buscar respuestas",
+    "sort": "Orden",
+    "sortTitle": "Título",
+    "sortRecent": "Más recientes",
+    "count": "{count, plural, =0 {Sin respuestas} one {# respuesta} other {# respuestas}}",
+    "copy": "Copiar",
+    "copied": "Copiado al portapapeles",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "empty": {
+      "title": "Aún no hay respuestas predefinidas",
+      "body": "Crea una macro para responder más rápido."
+    },
+    "emptyFiltered": {
+      "title": "Ninguna respuesta coincide con tu búsqueda",
+      "body": "Prueba con otro término."
+    },
+    "error": "No pudimos cargar las respuestas predefinidas.",
+    "form": {
+      "newTitle": "Nueva respuesta",
+      "editTitle": "Editar respuesta",
+      "title": "Título",
+      "titlePlaceholder": "Reembolso aprobado",
+      "category": "Categoría",
+      "categoryPlaceholder": "p. ej. facturación",
+      "body": "Contenido",
+      "bodyPlaceholder": "Escribe la respuesta…",
+      "create": "Crear respuesta",
+      "save": "Guardar cambios",
+      "saving": "Guardando…",
+      "created": "Respuesta creada",
+      "saved": "Respuesta actualizada"
+    },
+    "deleteConfirm": {
+      "title": "Eliminar respuesta",
+      "message": "Esta macro se eliminará. No se puede deshacer.",
+      "confirm": "Eliminar",
+      "deleted": "Respuesta eliminada"
+    }
   }
 }
