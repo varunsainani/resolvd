@@ -513,5 +513,46 @@
       "submitting": "Adicionando…",
       "created": "Agente adicionado"
     }
+  },
+  "submit": {
+    "title": "Enviar um ticket",
+    "subtitle": "Conte o que está acontecendo e nossa equipe responderá.",
+    "signIn": "Acesso de agentes",
+    "tabSubmit": "Novo ticket",
+    "tabTrack": "Acompanhar um ticket",
+    "form": {
+      "name": "Seu nome",
+      "namePlaceholder": "Jordan Lee",
+      "email": "E-mail",
+      "emailPlaceholder": "voce@empresa.com",
+      "company": "Empresa",
+      "companyPlaceholder": "Opcional",
+      "subject": "Assunto",
+      "subjectPlaceholder": "Um breve resumo",
+      "message": "Como podemos ajudar?",
+      "messagePlaceholder": "Descreva o problema em detalhes…",
+      "submit": "Enviar ticket",
+      "submitting": "Enviando…"
+    },
+    "success": {
+      "title": "Ticket recebido",
+      "subtitle": "Registramos sua solicitação e nossa IA já fez a triagem.",
+      "reference": "Sua referência",
+      "summary": "Resumo",
+      "another": "Enviar outro ticket",
+      "trackHint": "Guarde seu número de referência para verificar o status depois."
+    },
+    "track": {
+      "title": "Acompanhar um ticket",
+      "subtitle": "Informe seu número de referência e e-mail para ver o status.",
+      "reference": "Número de referência",
+      "referencePlaceholder": "ex.: 1042",
+      "email": "E-mail",
+      "emailPlaceholder": "voce@empresa.com",
+      "lookup": "Ver status",
+      "looking": "Verificando…",
+      "notFound": "Não encontramos um ticket com essa referência e e-mail.",
+      "openedOn": "Aberto {date}"
+    }
   }
 }
