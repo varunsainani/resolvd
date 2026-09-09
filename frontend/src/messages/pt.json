@@ -317,5 +317,27 @@
     "viewAnalytics": "Ver análises",
     "emptyRecent": "Ainda não há tickets.",
     "emptyMine": "Nada atribuído a você no momento."
+  },
+  "roles": {
+    "admin": "Administrador",
+    "agent": "Agente"
+  },
+  "settings": {
+    "title": "Configurações",
+    "subtitle": "Gerencie sua conta e preferências.",
+    "profile": "Perfil",
+    "name": "Nome de exibição",
+    "email": "E-mail",
+    "emailHint": "Seu e-mail não pode ser alterado.",
+    "role": "Função",
+    "preferences": "Preferências",
+    "language": "Idioma",
+    "theme": "Tema",
+    "themeLight": "Claro",
+    "themeDark": "Escuro",
+    "themeSystem": "Sistema",
+    "save": "Salvar alterações",
+    "saving": "Salvando…",
+    "saved": "Configurações salvas"
   }
 }
