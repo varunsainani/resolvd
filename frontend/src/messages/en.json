@@ -475,5 +475,43 @@
       "confirm": "Delete",
       "deleted": "Response deleted"
     }
+  },
+  "team": {
+    "title": "Team",
+    "subtitle": "Manage the agents who can access this desk.",
+    "add": "Add agent",
+    "name": "Name",
+    "email": "Email",
+    "role": "Role",
+    "assigned": "Assigned",
+    "open": "Open",
+    "you": "You",
+    "count": "{count, plural, =0 {No agents} one {# agent} other {# agents}}",
+    "error": "We couldn't load the team.",
+    "roleChanged": "Role updated",
+    "remove": "Remove",
+    "forbidden": {
+      "title": "Admins only",
+      "body": "You need an admin account to manage the team."
+    },
+    "removeConfirm": {
+      "title": "Remove agent",
+      "message": "{name} will lose access. Their assigned tickets stay with them.",
+      "confirm": "Remove",
+      "removed": "Agent removed"
+    },
+    "addModal": {
+      "title": "Add agent",
+      "name": "Name",
+      "namePlaceholder": "Jordan Lee",
+      "email": "Email",
+      "emailPlaceholder": "jordan@company.com",
+      "password": "Temporary password",
+      "passwordPlaceholder": "At least 8 characters",
+      "role": "Role",
+      "submit": "Add agent",
+      "submitting": "Adding…",
+      "created": "Agent added"
+    }
   }
 }
