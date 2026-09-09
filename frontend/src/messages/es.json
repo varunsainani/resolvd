@@ -339,5 +339,50 @@
     "save": "Guardar cambios",
     "saving": "Guardando…",
     "saved": "Ajustes guardados"
+  },
+  "customers": {
+    "title": "Clientes",
+    "subtitle": "Todos los que han contactado con soporte.",
+    "searchPlaceholder": "Busca por nombre, correo o empresa",
+    "sort": "Orden",
+    "sortRecent": "Más recientes",
+    "sortName": "Nombre",
+    "sortTickets": "Más tickets",
+    "name": "Nombre",
+    "email": "Correo",
+    "company": "Empresa",
+    "tickets": "Tickets",
+    "noCompany": "—",
+    "count": "{count, plural, =0 {Sin clientes} one {# cliente} other {# clientes}}",
+    "empty": {
+      "title": "Aún no hay clientes",
+      "body": "Los clientes aparecen aquí cuando abren un ticket."
+    },
+    "emptyFiltered": {
+      "title": "Ningún cliente coincide con tu búsqueda",
+      "body": "Prueba con otro nombre, correo o empresa."
+    },
+    "error": "No pudimos cargar los clientes.",
+    "detail": {
+      "back": "Volver a clientes",
+      "since": "Cliente desde {date}",
+      "ticketsHeading": "Tickets",
+      "noTickets": "Este cliente no tiene tickets.",
+      "edit": "Editar",
+      "notFound": {
+        "title": "Cliente no encontrado",
+        "body": "Es posible que este cliente se haya eliminado.",
+        "cta": "Volver a clientes"
+      }
+    },
+    "editModal": {
+      "title": "Editar cliente",
+      "name": "Nombre",
+      "company": "Empresa",
+      "companyPlaceholder": "Opcional",
+      "save": "Guardar",
+      "saving": "Guardando…",
+      "saved": "Cliente actualizado"
+    }
   }
 }
