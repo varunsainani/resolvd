@@ -317,5 +317,27 @@
     "viewAnalytics": "View analytics",
     "emptyRecent": "No tickets yet.",
     "emptyMine": "Nothing is assigned to you right now."
+  },
+  "roles": {
+    "admin": "Admin",
+    "agent": "Agent"
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Manage your account and preferences.",
+    "profile": "Profile",
+    "name": "Display name",
+    "email": "Email",
+    "emailHint": "Your email can't be changed.",
+    "role": "Role",
+    "preferences": "Preferences",
+    "language": "Language",
+    "theme": "Theme",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "themeSystem": "System",
+    "save": "Save changes",
+    "saving": "Saving…",
+    "saved": "Settings saved"
   }
 }
