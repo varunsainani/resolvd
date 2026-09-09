@@ -384,5 +384,52 @@
       "saving": "Saving…",
       "saved": "Customer updated"
     }
+  },
+  "kb": {
+    "title": "Knowledge base",
+    "subtitle": "Articles that ground the AI's suggested replies.",
+    "new": "New article",
+    "searchPlaceholder": "Search articles",
+    "sort": "Sort",
+    "sortUpdated": "Recently updated",
+    "sortTitle": "Title",
+    "sortOldest": "Oldest",
+    "count": "{count, plural, =0 {No articles} one {# article} other {# articles}}",
+    "updated": "Updated {date}",
+    "edit": "Edit",
+    "delete": "Delete",
+    "empty": {
+      "title": "No articles yet",
+      "body": "Add your first article to ground AI replies."
+    },
+    "emptyFiltered": {
+      "title": "No articles match your search",
+      "body": "Try a different term."
+    },
+    "error": "We couldn't load the knowledge base.",
+    "form": {
+      "newTitle": "New article",
+      "editTitle": "Edit article",
+      "title": "Title",
+      "titlePlaceholder": "How to reset your password",
+      "category": "Category",
+      "categoryPlaceholder": "e.g. account",
+      "keywords": "Keywords",
+      "keywordsPlaceholder": "Comma-separated terms",
+      "keywordsHint": "Used to match this article to incoming tickets.",
+      "body": "Body",
+      "bodyPlaceholder": "Write the article…",
+      "create": "Create article",
+      "save": "Save changes",
+      "saving": "Saving…",
+      "created": "Article created",
+      "saved": "Article updated"
+    },
+    "deleteConfirm": {
+      "title": "Delete article",
+      "message": "This article will no longer ground AI replies. This can't be undone.",
+      "confirm": "Delete",
+      "deleted": "Article deleted"
+    }
   }
 }
