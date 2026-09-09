@@ -384,5 +384,52 @@
       "saving": "Guardando…",
       "saved": "Cliente actualizado"
     }
+  },
+  "kb": {
+    "title": "Base de conocimiento",
+    "subtitle": "Artículos que fundamentan las respuestas sugeridas por la IA.",
+    "new": "Nuevo artículo",
+    "searchPlaceholder": "Buscar artículos",
+    "sort": "Orden",
+    "sortUpdated": "Actualizados hace poco",
+    "sortTitle": "Título",
+    "sortOldest": "Más antiguos",
+    "count": "{count, plural, =0 {Sin artículos} one {# artículo} other {# artículos}}",
+    "updated": "Actualizado {date}",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "empty": {
+      "title": "Aún no hay artículos",
+      "body": "Agrega tu primer artículo para fundamentar las respuestas de IA."
+    },
+    "emptyFiltered": {
+      "title": "Ningún artículo coincide con tu búsqueda",
+      "body": "Prueba con otro término."
+    },
+    "error": "No pudimos cargar la base de conocimiento.",
+    "form": {
+      "newTitle": "Nuevo artículo",
+      "editTitle": "Editar artículo",
+      "title": "Título",
+      "titlePlaceholder": "Cómo restablecer tu contraseña",
+      "category": "Categoría",
+      "categoryPlaceholder": "p. ej. cuenta",
+      "keywords": "Palabras clave",
+      "keywordsPlaceholder": "Términos separados por comas",
+      "keywordsHint": "Se usan para relacionar este artículo con los tickets entrantes.",
+      "body": "Contenido",
+      "bodyPlaceholder": "Escribe el artículo…",
+      "create": "Crear artículo",
+      "save": "Guardar cambios",
+      "saving": "Guardando…",
+      "created": "Artículo creado",
+      "saved": "Artículo actualizado"
+    },
+    "deleteConfirm": {
+      "title": "Eliminar artículo",
+      "message": "Este artículo dejará de fundamentar las respuestas de IA. No se puede deshacer.",
+      "confirm": "Eliminar",
+      "deleted": "Artículo eliminado"
+    }
   }
 }
