@@ -431,5 +431,49 @@
       "confirm": "Delete",
       "deleted": "Article deleted"
     }
+  },
+  "canned": {
+    "title": "Canned responses",
+    "subtitle": "Reusable reply macros for your team.",
+    "new": "New response",
+    "searchPlaceholder": "Search responses",
+    "sort": "Sort",
+    "sortTitle": "Title",
+    "sortRecent": "Newest",
+    "count": "{count, plural, =0 {No responses} one {# response} other {# responses}}",
+    "copy": "Copy",
+    "copied": "Copied to clipboard",
+    "edit": "Edit",
+    "delete": "Delete",
+    "empty": {
+      "title": "No canned responses yet",
+      "body": "Create a macro to reply faster."
+    },
+    "emptyFiltered": {
+      "title": "No responses match your search",
+      "body": "Try a different term."
+    },
+    "error": "We couldn't load canned responses.",
+    "form": {
+      "newTitle": "New response",
+      "editTitle": "Edit response",
+      "title": "Title",
+      "titlePlaceholder": "Refund approved",
+      "category": "Category",
+      "categoryPlaceholder": "e.g. billing",
+      "body": "Body",
+      "bodyPlaceholder": "Write the response…",
+      "create": "Create response",
+      "save": "Save changes",
+      "saving": "Saving…",
+      "created": "Response created",
+      "saved": "Response updated"
+    },
+    "deleteConfirm": {
+      "title": "Delete response",
+      "message": "This macro will be removed. This can't be undone.",
+      "confirm": "Delete",
+      "deleted": "Response deleted"
+    }
   }
 }
