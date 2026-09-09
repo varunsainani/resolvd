@@ -475,5 +475,43 @@
       "confirm": "Excluir",
       "deleted": "Resposta excluída"
     }
+  },
+  "team": {
+    "title": "Equipe",
+    "subtitle": "Gerencie os agentes que podem acessar esta central.",
+    "add": "Adicionar agente",
+    "name": "Nome",
+    "email": "E-mail",
+    "role": "Função",
+    "assigned": "Atribuídos",
+    "open": "Abertos",
+    "you": "Você",
+    "count": "{count, plural, =0 {Nenhum agente} one {# agente} other {# agentes}}",
+    "error": "Não foi possível carregar a equipe.",
+    "roleChanged": "Função atualizada",
+    "remove": "Remover",
+    "forbidden": {
+      "title": "Apenas administradores",
+      "body": "Você precisa de uma conta de administrador para gerenciar a equipe."
+    },
+    "removeConfirm": {
+      "title": "Remover agente",
+      "message": "{name} perderá o acesso. Os tickets atribuídos continuam com essa pessoa.",
+      "confirm": "Remover",
+      "removed": "Agente removido"
+    },
+    "addModal": {
+      "title": "Adicionar agente",
+      "name": "Nome",
+      "namePlaceholder": "Jordan Lee",
+      "email": "E-mail",
+      "emailPlaceholder": "jordan@empresa.com",
+      "password": "Senha temporária",
+      "passwordPlaceholder": "Pelo menos 8 caracteres",
+      "role": "Função",
+      "submit": "Adicionar agente",
+      "submitting": "Adicionando…",
+      "created": "Agente adicionado"
+    }
   }
 }
