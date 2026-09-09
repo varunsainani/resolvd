@@ -1,5 +1,7 @@
 # Resolvd
 
+**Live demo:** https://resolvd-varunprojects.vercel.app — one-click demo login, no signup needed.
+
 AI support desk. A shared inbox where customer tickets land and AI does the heavy lifting: automatic triage (priority, category, tags, sentiment, one line summary), a grounded suggested reply for agents, canned macros, SLA timers, and a live analytics dashboard. A public submit form shows the customer side with instant AI triage.
 
 ## Stack
