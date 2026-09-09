@@ -513,5 +513,46 @@
       "submitting": "Agregando…",
       "created": "Agente agregado"
     }
+  },
+  "submit": {
+    "title": "Enviar un ticket",
+    "subtitle": "Cuéntanos qué ocurre y nuestro equipo te responderá.",
+    "signIn": "Acceso de agentes",
+    "tabSubmit": "Nuevo ticket",
+    "tabTrack": "Seguir un ticket",
+    "form": {
+      "name": "Tu nombre",
+      "namePlaceholder": "Jordan Lee",
+      "email": "Correo",
+      "emailPlaceholder": "tu@empresa.com",
+      "company": "Empresa",
+      "companyPlaceholder": "Opcional",
+      "subject": "Asunto",
+      "subjectPlaceholder": "Un breve resumen",
+      "message": "¿Cómo podemos ayudarte?",
+      "messagePlaceholder": "Describe el problema en detalle…",
+      "submit": "Enviar ticket",
+      "submitting": "Enviando…"
+    },
+    "success": {
+      "title": "Ticket recibido",
+      "subtitle": "Registramos tu solicitud y nuestra IA ya la clasificó.",
+      "reference": "Tu referencia",
+      "summary": "Resumen",
+      "another": "Enviar otro ticket",
+      "trackHint": "Guarda tu número de referencia para consultar el estado más tarde."
+    },
+    "track": {
+      "title": "Seguir un ticket",
+      "subtitle": "Ingresa tu número de referencia y correo para ver el estado.",
+      "reference": "Número de referencia",
+      "referencePlaceholder": "p. ej. 1042",
+      "email": "Correo",
+      "emailPlaceholder": "tu@empresa.com",
+      "lookup": "Ver estado",
+      "looking": "Consultando…",
+      "notFound": "No encontramos un ticket con esa referencia y correo.",
+      "openedOn": "Abierto {date}"
+    }
   }
 }
