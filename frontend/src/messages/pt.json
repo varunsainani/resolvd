@@ -431,5 +431,49 @@
       "confirm": "Excluir",
       "deleted": "Artigo excluído"
     }
+  },
+  "canned": {
+    "title": "Respostas prontas",
+    "subtitle": "Macros de resposta reutilizáveis para sua equipe.",
+    "new": "Nova resposta",
+    "searchPlaceholder": "Buscar respostas",
+    "sort": "Ordem",
+    "sortTitle": "Título",
+    "sortRecent": "Mais recentes",
+    "count": "{count, plural, =0 {Nenhuma resposta} one {# resposta} other {# respostas}}",
+    "copy": "Copiar",
+    "copied": "Copiado para a área de transferência",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "empty": {
+      "title": "Ainda não há respostas prontas",
+      "body": "Crie uma macro para responder mais rápido."
+    },
+    "emptyFiltered": {
+      "title": "Nenhuma resposta corresponde à sua busca",
+      "body": "Tente outro termo."
+    },
+    "error": "Não foi possível carregar as respostas prontas.",
+    "form": {
+      "newTitle": "Nova resposta",
+      "editTitle": "Editar resposta",
+      "title": "Título",
+      "titlePlaceholder": "Reembolso aprovado",
+      "category": "Categoria",
+      "categoryPlaceholder": "ex.: faturamento",
+      "body": "Conteúdo",
+      "bodyPlaceholder": "Escreva a resposta…",
+      "create": "Criar resposta",
+      "save": "Salvar alterações",
+      "saving": "Salvando…",
+      "created": "Resposta criada",
+      "saved": "Resposta atualizada"
+    },
+    "deleteConfirm": {
+      "title": "Excluir resposta",
+      "message": "Esta macro será removida. Não pode ser desfeito.",
+      "confirm": "Excluir",
+      "deleted": "Resposta excluída"
+    }
   }
 }
