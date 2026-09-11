@@ -14,7 +14,11 @@ export function Topbar() {
       <MobileNav />
       <Brand className="md:hidden" />
       <div className="ml-auto flex items-center gap-2">
-        <LanguageSwitcher />
+        {/* Hidden on the smallest screens to keep the bar from overflowing;
+            language stays available in Settings. */}
+        <div className="hidden sm:block">
+          <LanguageSwitcher />
+        </div>
         <ThemeToggle />
         <UserMenu />
       </div>
