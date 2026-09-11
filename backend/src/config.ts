@@ -20,3 +20,9 @@ export const config = {
   dailyPublicSubmitLimit: Number(process.env.DAILY_PUBLIC_SUBMIT_LIMIT || 20),
   port: Number(process.env.PORT || 8000),
 };
+
+// Fail fast rather than silently signing and verifying tokens with a public,
+// well-known default secret if JWT_SECRET is missing in a real deployment.
+if (process.env.NODE_ENV === "production" && config.jwtSecret === "dev-insecure-change-me") {
+  throw new Error("JWT_SECRET must be set in production");
+}
