@@ -67,7 +67,8 @@ authRouter.get("/me", requireUser, async (req, res) => {
 });
 
 const LOCALES = ["en", "es", "pt"] as const;
-const THEMES = ["light", "dark"] as const;
+// Matches the frontend theme options; "system" follows the OS preference.
+const THEMES = ["light", "dark", "system"] as const;
 
 // PATCH /api/auth/me — update the caller's display name, locale, or theme.
 authRouter.patch("/me", requireUser, async (req, res) => {
